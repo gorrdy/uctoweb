@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TQN76YWWJS"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TQN76YWWJS');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>ÚčtoVšem | Účetnictví, daně a krypto - Praha a Online</title>
+    <meta name="description" content="Profesionální vedení účetnictví, zpracování mezd a daňová přiznání. Specializujeme se na firmy, OSVČ a zdanění kryptoměn. Působíme v Praze i online.">
+    <meta name="keywords" content="účetnictví, daně, mzdy, kryptoměny, daňové přiznání, účetní Praha, vedení účetnictví">
+    <meta name="author" content="ÚčtoVšem s.r.o.">
+    <meta name="robots" content="index, follow">
+    
+    <link rel="canonical" href="https://www.uctovsem.cz/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.uctovsem.cz/">
+    <meta property="og:title" content="ÚčtoVšem | Moderní účetnictví a daně bez starostí">
+    <meta property="og:description" content="Věnujte se podnikání, papírování nechte na nás. Řešíme účetnictví, mzdy i krypto transakce.">
+    <meta property="og:image" content="{{ url_for('static', filename='og-image.jpg') }}">
+    <meta property="og:locale" content="cs_CZ">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ÚčtoVšem | Účetnictví a daně">
+    <meta name="twitter:description" content="Kompletní účetní servis pro moderní firmy a krypto investory.">
+    <meta name="twitter:image" content="{{ url_for('static', filename='og-image.jpg') }}">
+
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#home" class="logo-link" aria-label="Přejít na úvod">
+                    <img loading="lazy" src="{{ url_for('static', filename='logo.png') }}" alt="ÚčtoVšem Logo" class="logo-img">
+                </a>
+                
+                <ul class="nav-links">
+                    <li><a href="#about">O nás</a></li>
+                    <li><a href="#accounting">Účetnictví</a></li>
+                    <li><a href="#taxes">Daně</a></li>
+                    <li><a href="#payroll">Mzdy</a></li>
+                    <li><a href="#contact">Kontakt</a></li>
+                </ul>
+
+                <a href="tel:+420777942666" class="header-btn">
+                    <i class="fa-solid fa-phone"></i> Zavolat nám
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <div data-aos="fade-up" data-aos-duration="1000">
+                <h1>Věnujte se podnikání,<br>papírování nechte na nás.</h1>
+                <p>Kompletní vedení účetnictví, mezd a daňové agendy.<br>Od klasických firem až po kryptoměnové transakce.</p>
+                
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn">Nezávazná konzultace</a>
+                    
+                    <div class="trust-badges">
+                        <span><i class="fa-regular fa-clock"></i> Odpovíme do 24h</span>
+                        <span><i class="fa-solid fa-shield-halved"></i> 100% diskrétnost</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="clients-section">
+        <div class="container">
+            <p class="clients-title">Důvěřují nám lídři v oboru</p>
+            
+            <div class="slider">
+                <div class="slide-track">
+                    <div class="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Klient 1"></div>
+                    <div class="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Klient 2"></div>
+                    <div class="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="Klient 3"></div>
+                    <div class="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Klient 4"></div>
+                    <div class="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Klient 5"></div>
+                    <div class="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg" alt="Klient 6"></div>
+                    <div class="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Klient 1"></div>
+                    <div class="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Klient 2"></div>
+                    <div class="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="Klient 3"></div>
+                    <div class="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Klient 4"></div>
+                    <div class="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Klient 5"></div>
+                    <div class="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg" alt="Klient 6"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section-padding features">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Proč si vybrat nás?</h2>
+                <div class="divider"></div>
+                <p>Stavíme na pevných základech, moderních technologiích a lidském přístupu.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-item" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fa-solid fa-circle-check feature-icon"></i>
+                    <h3>Profesionalita</h3>
+                    <p>Garantujeme odbornost a diskrétnost. Neustále se vzděláváme v legislativě.</p>
+                </div>
+                <div class="feature-item" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fa-brands fa-bitcoin feature-icon"></i>
+                    <h3>Moderní přístup & Krypto</h3>
+                    <p>Nebojíme se inovací. Umíme zaúčtovat a zdanit i vaše transakce v kryptoměnách.</p>
+                </div>
+                <div class="feature-item" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fa-solid fa-handshake feature-icon"></i>
+                    <h3>Lidský přístup</h3>
+                    <p>Mluvíme řečí, které rozumíte. Žádná složitá terminologie, pokud si ji nepřejete. Jsme vaši partneři.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services-wrapper" class="section-padding" style="background-color: var(--bg-light);">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Naše expertíza</h2>
+                <div class="divider"></div>
+                <p>Podívejte se detailně, jak vám můžeme ulehčit život.</p>
+            </div>
+
+            <div id="accounting" class="service-row">
+                <div class="service-text" data-aos="fade-right">
+                    <div class="icon-box"><i class="fa-solid fa-calculator"></i></div>
+                    <h3>Kompletní vedení účetnictví</h3>
+                    <p>Zbavte se šanonů a nepořádku. Převezmeme veškerou vaši účetní agendu. Ať už jste malý živnostník nebo rostoucí s.r.o., nastavíme procesy tak, aby byly efektivní a bezchybné.</p>
+                    <p>Zajišťujeme vedení podvojného účetnictví i daňové evidence. Vše digitálně, přehledně a v souladu s nejnovější legislativou. Vy se věnujete byznysu, my hlídáme čísla.</p>
+                    <ul class="service-list">
+                        <li>Vedení účetního deníku a hlavní knihy</li>
+                        <li>Evidence pohledávek a závazků</li>
+                        <li>Zpracování bankovních výpisů</li>
+                        <li>Účetní závěrky a reporting</li>
+                    </ul>
+                </div>
+                <div class="service-img-wrapper" data-aos="fade-left">
+                    <img loading="lazy" src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=2026&auto=format&fit=crop" alt="Vedení účetnictví">
+                </div>
+            </div>
+
+            <div id="taxes" class="service-row reverse">
+                <div class="service-text" data-aos="fade-left">
+                    <div class="icon-box"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+                    <h3>Daně a optimalizace</h3>
+                    <p>Daňové přiznání nemusí být noční můra. Pohlídáme za vás všechny termíny a zajistíme, abyste na daních nezaplatili ani o korunu víc, než musíte – samozřejmě v mezích zákona.</p>
+                    <p>Specializujeme se také na <strong>zdanění kryptoměn</strong> a investičních portfolií. Nenechte se zaskočit finančním úřadem a svěřte své daně profesionálům, kteří rozumí moderním financím.</p>
+                    <ul class="service-list">
+                        <li>Daň z příjmů (DPPO, DPFO)</li>
+                        <li>DPH a Kontrolní hlášení</li>
+                        <li>Silniční daň a daň z nemovitostí</li>
+                        <li>Konzultace daňové optimalizace</li>
+                    </ul>
+                </div>
+                <div class="service-img-wrapper" data-aos="fade-right">
+                    <img loading="lazy" src="https://images.unsplash.com/photo-1586486855514-8c633cc6fd38?q=80&w=2070&auto=format&fit=crop" alt="Daňové poradenství">
+                </div>
+            </div>
+
+            <div id="payroll" class="service-row">
+                <div class="service-text" data-aos="fade-right">
+                    <div class="icon-box"><i class="fa-solid fa-users"></i></div>
+                    <h3>Mzdy a personalistika</h3>
+                    <p>Spokojený zaměstnanec je základ firmy. Postaráme se o to, aby výplaty odcházely včas a správně vypočítané. Řešíme kompletní komunikaci s úřady, přihlášky i odhlášky.</p>
+                    <p>Nezatěžujte se složitou pracovně-právní legislativou. My pohlídáme změny v zákonech, vy jen schválíte příkazy k úhradě.</p>
+                    <ul class="service-list">
+                        <li>Výpočet měsíčních mezd a odvodů</li>
+                        <li>Přehledy pro ČSSZ a zdravotní pojišťovny</li>
+                        <li>Roční zúčtování daně zaměstnanců</li>
+                        <li>Mzdové listy a evidenční listy</li>
+                    </ul>
+                </div>
+                <div class="service-img-wrapper" data-aos="fade-left">
+                    <img loading="lazy" src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=2069&auto=format&fit=crop" alt="Mzdy a personalistika">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="cta-banner">
+        <div class="container">
+            <div class="cta-content" data-aos="zoom-in">
+                <div class="cta-text">
+                    <h2>Nejste si jistí, co přesně potřebujete?</h2>
+                    <p>Každé podnikání je jiné. Pobavme se o vaší situaci.<br>Zavolejte nám rovnou, nebo vyplňte rychlou poptávku.</p>
+                </div>
+                <div class="cta-action">
+                    <a href="#contact" class="btn btn-light">
+                        <i class="fa-solid fa-pen-to-square"></i> Vyplnit poptávku
+                    </a>
+                    
+                    <a href="tel:+420777942666" class="btn btn-outline-light">
+                        <i class="fa-solid fa-phone"></i> Zavolat ihned
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" style="background-color: #fff;">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Co o nás říkají klienti</h2>
+                <div class="divider"></div>
+                <p>Spokojenost klientů je naše nejlepší vizitka. Přečtěte si jejich zkušenosti.</p>
+            </div>
+
+            <div class="testimonials-wrapper" data-aos="fade-up" data-aos-delay="200">
+                
+                <button class="nav-btn prev-btn" aria-label="Předchozí reference">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+
+                <div class="testimonials-viewport">
+                    <div class="testimonials-track">
+                        
+                        <div class="testimonial-card">
+                            <div class="quote-icon"><i class="fa-solid fa-quote-right"></i></div>
+                            <p class="review-text">"Konečně účetní firma, která rozumí krypto světu. Ušetřili nám desítky hodin vysvětlování, jak fungují naše DeFi transakce. Profesionální a rychlé."</p>
+                            <div class="reviewer">
+                                <strong>Jan Novák</strong>
+                                <span>CEO, TechStartup s.r.o.</span>
+                            </div>
+                        </div>
+
+                        <div class="testimonial-card">
+                            <div class="quote-icon"><i class="fa-solid fa-quote-right"></i></div>
+                            <p class="review-text">"Spolupracujeme už 3 roky. Oceňuji hlavně to, že Tereza s Annou myslí za mě. Hlídají termíny DPH a navrhují optimalizace, které mě nenapadly."</p>
+                            <div class="reviewer">
+                                <strong>Petr Svoboda</strong>
+                                <span>Majitel e-shopu SvětHraček</span>
+                            </div>
+                        </div>
+
+                        <div class="testimonial-card">
+                            <div class="quote-icon"><i class="fa-solid fa-quote-right"></i></div>
+                            <p class="review-text">"Přešla jsem k nim od velké korporace a ten rozdíl v přístupu je obrovský. Vše řešíme digitálně, rychle reagují na dotazy a mám klidné spaní."</p>
+                            <div class="reviewer">
+                                <strong>Eva Dvořáková</strong>
+                                <span>Marketingová konzultantka</span>
+                            </div>
+                        </div>
+
+                        <div class="testimonial-card">
+                            <div class="quote-icon"><i class="fa-solid fa-quote-right"></i></div>
+                            <p class="review-text">"Potřebovali jsme dát do pořádku mzdy pro 20 zaměstnanců. ÚčtoVšem převzali agendu během týdne a vše běží jako na drátkách."</p>
+                            <div class="reviewer">
+                                <strong>Martin Kučera</strong>
+                                <span>Jednatel stavební firmy</span>
+                            </div>
+                        </div>
+
+                        <div class="testimonial-card">
+                            <div class="quote-icon"><i class="fa-solid fa-quote-right"></i></div>
+                            <p class="review-text">"Jako programátor nenávidím papírování. Tady mi nastavili paušální daň, jednou za rok pošlu podklady a o víc se nestarám. Naprostá spokojenost."</p>
+                            <div class="reviewer">
+                                <strong>Tomáš Veselý</strong>
+                                <span>Senior Python Developer</span>
+                            </div>
+                        </div>
+
+                        <div class="testimonial-card">
+                            <div class="quote-icon"><i class="fa-solid fa-quote-right"></i></div>
+                            <p class="review-text">"Mám soukromou ordinaci a potřebuji spolehlivost. ÚčtoVšem mi doporučil kolega a nelituji. Všechna přiznání podána včas a bez chyb."</p>
+                            <div class="reviewer">
+                                <strong>MUDr. Lenka Králová</strong>
+                                <span>Zubní ordinace</span>
+                            </div>
+                        </div>
+
+                        <div class="testimonial-card">
+                            <div class="quote-icon"><i class="fa-solid fa-quote-right"></i></div>
+                            <p class="review-text">"Měl jsem v účetnictví chaos kvůli tisícům transakcí na burzách. Dali to dohromady metodou FIFO a prošlo to kontrolou na finančáku bez ztráty kytičky."</p>
+                            <div class="reviewer">
+                                <strong>Marek Tichý</strong>
+                                <span>Krypto investor</span>
+                            </div>
+                        </div>
+
+                        <div class="testimonial-card">
+                            <div class="quote-icon"><i class="fa-solid fa-quote-right"></i></div>
+                            <p class="review-text">"Gastronomie je náročná na administrativu. Díky ÚčtoVšem mám pořádek ve skladovém hospodářství i v DPH. Skvělá komunikace."</p>
+                            <div class="reviewer">
+                                <strong>Restaurace Pod Lipou</strong>
+                                <span>Provozní manažer</span>
+                            </div>
+                        </div>
+
+                        <div class="testimonial-card">
+                            <div class="quote-icon"><i class="fa-solid fa-quote-right"></i></div>
+                            <p class="review-text">"Nejvíce si cením toho, že mi vše vysvětlí lidsky. Žádná 'účetní hantýrka', které nerozumím. Prostě mi řeknou, co, kam a kdy poslat."</p>
+                            <div class="reviewer">
+                                <strong>Ing. arch. David Holub</strong>
+                                <span>Architekt</span>
+                            </div>
+                        </div>
+
+                        <div class="testimonial-card">
+                            <div class="quote-icon"><i class="fa-solid fa-quote-right"></i></div>
+                            <p class="review-text">"Vedou nám účetnictví pro náš spolek už pět let. Pomohli nám i s vyúčtováním dotací, což je vždy administrativní peklo. Doporučuji."</p>
+                            <div class="reviewer">
+                                <strong>Veronika Malá</strong>
+                                <span>Předsedkyně spolku</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <button class="nav-btn next-btn" aria-label="Další reference">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding contact">
+        <div class="container">
+            
+            <div class="section-header" data-aos="fade-up">
+                <h2>Kontaktujte nás</h2>
+                <div class="divider"></div>
+                <p>Jsme tu pro vás. Ozvěte se nám telefonicky nebo formulářem.</p>
+            </div>
+
+            <div class="contact-wrapper" id="contact" >
+                <div class="contact-info" data-aos="fade-right">
+                    <h3>Kde nás najdete</h3>
+                    
+                    <div class="info-block">
+                        <span class="info-label">Kancelář</span>
+                        <span class="info-value">Sokolovská 37/24, 186 00<br>Praha 8 – Karlín</span>
+                    </div>
+
+                    <div class="info-block">
+                        <span class="info-label">Telefon & Chat</span>
+                        <span class="info-value">
+                            <a href="tel:+420777942666" style="display: block; margin-bottom: 10px;">+420 777 942 666</a>
+                        </span>
+                    </div>
+
+                    <div class="info-block">
+                        <span class="info-label">Email</span>
+                        <span class="info-value">
+                            <a href="mailto:info&#64;uctovsem.cz">info&#64;uctovsem.cz</a>
+                        </span>
+                    </div>
+
+                    <div class="info-block" style="margin-bottom: 40px;">
+                        <span class="info-label">Sociální sítě</span>
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/company/%C3%BA%C4%8Dtov%C5%A1em/" target="_blank" title="LinkedIn">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
+                            
+                            <a href="https://www.facebook.com/UctoVsem/" target="_blank" title="Facebook">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                            
+                            <a href="https://www.instagram.com/uctovsem/" target="_blank" title="Instagram">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: auto; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.15);">
+                        <span class="info-label" style="opacity: 0.7;">Fakturační údaje</span>
+                        <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 5px; line-height: 1.5;">
+                            ÚčtoVšem s.r.o., Kurzova 2222/16, Stodůlky<br>IČ: 251 11 761
+                        </p>
+                    </div>
+                </div>
+
+                <div class="contact-form" data-aos="fade-left">
+                    <h3 style="margin-bottom: 25px;">Zavolejte nebo napište</h3>
+                    
+                    <div class="quick-contact-top">
+                        <p>Nejrychlejší cesta? Vyřešte to hned po telefonu.</p>
+                        
+                        <a href="tel:+420777942666" class="btn btn-full-width btn-call">
+                            <i class="fa-solid fa-phone-volume"></i> Zavolat +420 777 942 666
+                        </a>
+                    </div>
+
+                    <div class="form-divider">
+                        <span>nebo vyplňte formulář</span>
+                    </div>
+
+                    {% if success %}
+                    <div class="success-msg">
+                        <strong>Odesláno!</strong> Děkujeme za vaši zprávu, brzy se ozveme.
+                    </div>
+                    {% endif %}
+
+                    <form action="/" method="POST" id="mainForm">
+                        <div class="form-row">
+                            <input type="text" name="jmeno" placeholder="Jméno a Příjmení *" required>
+                            <input type="email" name="email" placeholder="Váš Email *" required>
+                        </div>
+                        <input type="tel" name="telefon" placeholder="Telefon (nepovinné)">
+
+                        <div class="tag-group">
+                            <label class="tag-label">Jsem:</label>
+                            <div class="tags-wrapper" id="subjectType">
+                                <label class="tag-checkbox"><input type="checkbox" value="Firma (s.r.o.)"><span>Firma</span></label>
+                                <label class="tag-checkbox"><input type="checkbox" value="OSVČ"><span>OSVČ</span></label>
+                                <label class="tag-checkbox"><input type="checkbox" value="Fyzická osoba"><span>Občan</span></label>
+                            </div>
+                        </div>
+
+                        <div class="tag-group">
+                            <label class="tag-label">Mám zájem o:</label>
+                            <div class="tags-wrapper" id="serviceType">
+                                <label class="tag-checkbox"><input type="checkbox" value="účetnictví"><span>Účetnictví</span></label>
+                                <label class="tag-checkbox"><input type="checkbox" value="daně"><span>Daně</span></label>
+                                <label class="tag-checkbox"><input type="checkbox" value="mzdy"><span>Mzdy</span></label>
+                                <label class="tag-checkbox"><input type="checkbox" value="krypto"><span>Krypto</span></label>
+                            </div>
+                        </div>
+
+                        <textarea name="zprava" id="messageBox" rows="4" placeholder="Vaše zpráva se zde automaticky doplní..."></textarea>
+                        
+                        <button type="submit" class="btn" style="width: 100%;">Odeslat poptávku</button>
+                    </form>
+                </div>
+                
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                
+                <div class="footer-col brand-col">
+                    <a href="#" class="footer-logo">
+                        <img loading="lazy" src="{{ url_for('static', filename='logo.png') }}" alt="ÚčtoVšem logo" style="filter: brightness(0) invert(1); opacity: 0.9; height: 40px;">
+                    </a>
+                    <p>Moderní účetní firma pro malé i velké podniky. Spojujeme poctivé řemeslo s nejnovějšími technologiemi.</p>
+                    <div class="footer-socials">
+                        <a href="https://www.linkedin.com/company/%C3%BA%C4%8Dtov%C5%A1em/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://www.facebook.com/UctoVsem/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/uctovsem/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Mapa webu</h4>
+                    <ul class="footer-links">
+                        <li><a href="#about">O nás</a></li>
+                        <li><a href="#accounting">Vedení účetnictví</a></li>
+                        <li><a href="#taxes">Daňová přiznání</a></li>
+                        <li><a href="#payroll">Mzdy a personalistika</a></li>
+                        <li><a href="#contact">Kontakt</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Užitečné odkazy</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://adisspr.mfcr.cz/pmd/home" target="_blank">Daňový portál (MOJE daně)</a></li>
+                        <li><a href="https://or.justice.cz/ias/ui/rejstrik" target="_blank">Obchodní rejstřík</a></li>
+                        <li><a href="https://www.rzp.cz/" target="_blank">Živnostenský rejstřík</a></li>
+                        <li><a href="https://www.cnb.cz/cs/" target="_blank">ČNB - Kurzy měn</a></li>
+                        <li><a href="https://www.cssz.cz/" target="_blank">Portál ČSSZ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Kontakt</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fa-solid fa-location-dot"></i> 
+                            <span>Kurzova 2222/16, Stodůlky<br>155 00 Praha 5</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-phone"></i> 
+                            <a href="tel:+420777942666">+420 777 942 666</a>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-envelope"></i> 
+                            <a href="mailto:info&#64;uctovsem.cz">info&#64;uctovsem.cz</a>
+                        </li>
+                    </ul>
+                    
+                    <div class="legal-links" style="margin-top: 20px;">
+                        <a href="{{ url_for('privacy') }}">Zásady ochrany osobních údajů (GDPR)</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="copyright">
+                <div class="copy-text">
+                    © 2026 ÚčtoVšem s.r.o. | IČ: 251 11 761 | Spisová značka C vedená u Městského soudu v Praze
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="mobile-sticky-bar">
+        <a href="tel:+420777942666" class="sticky-btn call">
+            <i class="fa-solid fa-phone"></i> Zavolat
+        </a>
+        
+        <a href="mailto:info&#64;uctovsem.cz?subject=Poptávka%20ÚčtoVšem&body=Dobrý%20den,%0D%0A%0D%0Amám%20zájem%20o%20nezávaznou%20konzultaci%20ohledně%20vašich%20služeb.%0D%0A%0D%0AProsím%20o%20kontaktování.%0D%0A%0D%0AS%20pozdravem" class="sticky-btn email">
+            <i class="fa-solid fa-envelope"></i> Napsat e-mail
+        </a>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "AccountingService",
+    "name": "ÚčtoVšem s.r.o.",
+    "image": "{{ url_for('static', filename='logo.png') }}",
+    "@id": "https://www.uctovsem.cz",
+    "url": "https://www.uctovsem.cz",
+    "telephone": "+420777942666",
+    "email": "info&#64;uctovsem.cz",
+    "priceRange": "$",
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Kurzova 2222/16",
+        "addressLocality": "Praha 5 - Stodůlky",
+        "postalCode": "15500",
+        "addressCountry": "CZ"
+    },
+    "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 50.0385,
+        "longitude": 14.3364
+    },
+    "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+        ],
+        "opens": "09:00",
+        "closes": "17:00"
+    },
+    "sameAs": [
+        "https://www.facebook.com/UctoVsem/",
+        "https://www.instagram.com/uctovsem/",
+        "https://www.linkedin.com/company/%C3%BA%C4%8Dtov%C5%A1em/"
+    ]
+    }
+    </script>
+</body>
+</html>

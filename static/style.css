@@ -1,0 +1,741 @@
+/* --- ÚčtoVšem - FINAL PRODUCTION STYLE (v4.0 Complete) --- */
+
+/* --- 1. ZÁKLADNÍ NASTAVENÍ A PROMĚNNÉ --- */
+:root {
+    --primary-color: #1a3642; /* Tmavá petrolejová */
+    --accent-color: #f97316; /* Jasná oranžová */
+    --accent-gradient: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+    --bg-light: #fff7ed; 
+    --text-color: #334155;
+    --white: #ffffff;
+    --glass-bg: rgba(255, 255, 255, 0.90);
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* DŮLEŽITÉ: Toto zajistí, že padding neroztahuje elementy mimo obrazovku */
+* {
+    box-sizing: border-box;
+}
+
+/* FIX: Zamezení horizontálnímu posouvání */
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden; /* Skryje vše co přeteče do boku */
+    margin: 0; padding: 0;
+}
+
+html { 
+    scroll-behavior: smooth;
+    /* Důležité: Odsazení kotvy, aby nadpis nebyl schovaný pod menu */
+    scroll-padding-top: 90px; 
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-color);
+    line-height: 1.7;
+    background-color: var(--white);
+}
+
+h1, h2, h3, h4, .btn, .header-btn {
+    font-family: 'Outfit', sans-serif;
+    color: var(--primary-color);
+}
+h1, h2, h3, h4 { font-weight: 700; margin-bottom: 1rem; }
+a { text-decoration: none; color: inherit; transition: var(--transition); }
+ul { list-style: none; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+/* --- 2. TLAČÍTKA --- */
+/* Hlavní oranžové tlačítko */
+.btn {
+    display: inline-block;
+    background: var(--accent-gradient);
+    color: var(--white);
+    padding: 14px 36px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
+    transition: var(--transition);
+}
+.btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(249, 115, 22, 0.4); }
+
+/* Bílé tlačítko (v CTA banneru) */
+.btn-light {
+    display: inline-block;
+    background: var(--white);
+    color: var(--primary-color);
+    padding: 14px 36px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: var(--transition);
+}
+.btn-light:hover {
+    background: var(--accent-color);
+    color: var(--white);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(249, 115, 22, 0.4);
+}
+
+/* Outline tlačítko (průhledné s rámečkem - v CTA banneru) */
+.btn-outline-light {
+    display: inline-block;
+    background: transparent;
+    color: var(--white);
+    padding: 14px 26px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 2px solid rgba(255,255,255,0.4);
+    transition: var(--transition);
+}
+.btn-outline-light:hover {
+    background: var(--white);
+    color: var(--primary-color);
+    border-color: var(--white);
+}
+
+/* Tlačítko pro volání ve formuláři */
+.btn-call {
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    box-shadow: none;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+}
+.btn-call:hover {
+    background: var(--primary-color);
+    color: var(--white);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(26, 54, 66, 0.2);
+}
+
+/* Pomocná třída pro plnou šířku */
+.btn-full-width {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+/* --- 3. HEADER & NAVIGACE --- */
+header {
+    background-color: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    position: fixed; width: 100%; top: 0; z-index: 1000;
+}
+
+nav {
+    display: flex; justify-content: space-between; align-items: center; height: 80px;
+}
+
+/* Logo Link - čistý styl */
+.logo-link {
+    display: inline-block;
+    cursor: pointer !important; /* Vynutí ruku */
+    position: relative;
+    z-index: 1002;
+}
+.logo-img { max-height: 45px; width: auto; cursor: pointer; }
+
+.nav-links { display: flex; gap: 30px; align-items: center; }
+.nav-links a {
+    font-weight: 500; color: var(--primary-color); position: relative; font-size: 1rem;
+}
+.nav-links a:hover { color: var(--accent-color); }
+
+/* Header Call Button */
+.header-btn {
+    display: flex; align-items: center; gap: 8px;
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+.header-btn:hover {
+    background-color: var(--accent-color);
+    color: var(--white);
+}
+
+
+/* --- 4. HERO SEKCE --- */
+.hero {
+    padding: 220px 0 160px;
+    background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(26, 54, 66, 0.9)), url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+    text-align: center;
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero h1 {
+    font-size: 3.5rem; color: var(--white); margin-bottom: 25px; line-height: 1.15;
+}
+
+.hero p {
+    font-size: 1.25rem; color: #cbd5e1; max-width: 700px; margin: 0 auto 40px; font-weight: 300;
+}
+
+.hero-buttons {
+    display: flex; flex-direction: column; align-items: center; gap: 20px; margin-top: 40px;
+}
+
+.trust-badges {
+    display: flex; gap: 20px; font-size: 0.9rem; color: #94a3b8; font-weight: 500; justify-content: center;
+}
+.trust-badges i { color: var(--accent-color); margin-right: 6px; }
+
+
+/* --- 5. KLIENTI (Logo Carousel) --- */
+.clients-section {
+    padding: 60px 0;
+    background-color: var(--white);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    overflow: hidden;
+}
+
+.clients-title {
+    text-align: center; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px;
+    color: #94a3b8; font-weight: 600; margin-bottom: 40px;
+}
+
+.slider {
+    height: 80px; margin: auto; overflow: hidden; position: relative; width: 100%;
+}
+
+.slider::before, .slider::after {
+    background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+    content: ""; height: 100%; position: absolute; width: 100px; z-index: 2;
+}
+.slider::after { right: 0; top: 0; transform: rotate(180deg); }
+.slider::before { left: 0; top: 0; }
+
+.slide-track {
+    display: flex; width: calc(250px * 12); animation: scroll 30s linear infinite;
+}
+
+.slide {
+    height: 80px; width: 250px; display: flex; align-items: center; justify-content: center; padding: 0 30px;
+}
+
+.slide img {
+    max-height: 45px; max-width: 100%; filter: grayscale(100%) opacity(0.6);
+    transition: all 0.3s ease; cursor: pointer;
+}
+
+.slide img:hover { filter: grayscale(0%) opacity(1); transform: scale(1.1); }
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-250px * 6)); }
+}
+
+
+/* --- 6. GLOBÁLNÍ SEKCE & FEATURES --- */
+.section-padding { 
+    padding: 60px 0; /* Zmenšeno ze 100px */
+}
+
+.section-header { 
+    text-align: center; 
+    margin-bottom: 40px; /* Zmenšeno ze 60px */
+}
+.section-header h2 { font-size: 2.8rem; margin-bottom: 15px; }
+.section-header .divider {
+    width: 60px; height: 4px; background: var(--accent-gradient); margin: 0 auto 20px; border-radius: 2px;
+}
+.section-header p { color: #64748b; max-width: 600px; margin: 0 auto; }
+
+.features-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;
+}
+.feature-item { text-align: center; padding: 20px; }
+.feature-icon { font-size: 3rem; color: var(--accent-color); margin-bottom: 20px; }
+
+
+/* --- 7. SLUŽBY (Zig-Zag) --- */
+.service-row {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-bottom: 120px;
+}
+.service-row:last-child { margin-bottom: 0; }
+.service-row.reverse .service-text { order: 2; }
+.service-row.reverse .service-img-wrapper { order: 1; }
+
+.service-text h3 { font-size: 2rem; margin-bottom: 20px; }
+.service-text p { color: #475569; margin-bottom: 20px; font-size: 1.05rem; line-height: 1.8; }
+
+.icon-box {
+    width: 60px; height: 60px; background: rgba(249, 115, 22, 0.1); border-radius: 12px;
+    display: flex; align-items: center; justify-content: center; color: var(--accent-color);
+    font-size: 1.5rem; margin-bottom: 25px;
+}
+
+.service-list { margin-top: 20px; }
+.service-list li {
+    margin-bottom: 12px; padding-left: 30px; position: relative;
+    font-weight: 500; color: var(--primary-color);
+}
+.service-list li::before {
+    content: "✓"; position: absolute; left: 0; top: 0; color: var(--accent-color); font-weight: 800;
+}
+
+.service-img-wrapper img {
+    width: 100%; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    transition: var(--transition);
+}
+.service-img-wrapper img:hover { transform: translateY(-5px); box-shadow: 0 30px 60px rgba(0,0,0,0.15); }
+
+
+/* --- 8. CTA BANNER (Mezi sekcemi) --- */
+.cta-banner {
+    background: var(--primary-color);
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-banner::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at 10% 20%, rgba(255,255,255,0.03) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(249, 115, 22, 0.05) 0%, transparent 20%);
+    pointer-events: none;
+}
+
+.cta-content {
+    display: flex; align-items: center; justify-content: space-between; gap: 40px;
+}
+
+.cta-text h2 { color: var(--white); margin-bottom: 15px; font-size: 2.2rem; }
+.cta-text p { color: #94a3b8; font-size: 1.1rem; margin: 0; max-width: 600px; }
+
+.cta-action { display: flex; gap: 15px; }
+
+
+/* --- 9. REFERENCE (Carousel) --- */
+.testimonials-wrapper {
+    position: relative;
+    max-width: 1000px; margin: 0 auto; padding: 0 50px; /* Desktop: místo pro šipky */
+}
+
+.testimonials-viewport {
+    overflow: hidden; width: 100%;
+    /* Padding pro hover efekt */
+    padding-top: 30px; padding-bottom: 30px;
+    margin-top: -30px; margin-bottom: -30px;
+}
+
+.testimonials-track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    gap: 30px;
+}
+
+.testimonial-card {
+    flex: 0 0 calc(50% - 15px); /* Desktop: 2 karty */
+    background: #f8fafc; padding: 40px;
+    border-radius: 20px; border: 1px solid #e2e8f0;
+    transition: var(--transition);
+    display: flex; flex-direction: column;
+}
+
+.testimonial-card:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transform: translateY(-5px);
+}
+
+/* Navigační tlačítka */
+.nav-btn {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    width: 45px; height: 45px; border-radius: 50%;
+    background: var(--white); border: 1px solid #e2e8f0;
+    color: var(--primary-color); font-size: 1.2rem; cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: var(--transition);
+    z-index: 10; display: flex; align-items: center; justify-content: center;
+}
+.nav-btn:hover { background: var(--accent-color); color: white; border-color: var(--accent-color); }
+.prev-btn { left: 0; }
+.next-btn { right: 0; }
+
+.quote-icon { font-size: 2rem; color: var(--accent-color); opacity: 0.2; margin-bottom: 20px; }
+.review-text { font-size: 1rem; font-style: italic; color: #334155; margin-bottom: 25px; line-height: 1.6; flex-grow: 1; }
+.reviewer strong { display: block; color: var(--primary-color); font-size: 1.1rem; }
+.reviewer span { font-size: 0.85rem; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; }
+
+
+/* --- 10. KONTAKT --- */
+.contact-wrapper {
+    display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px;
+}
+.contact-info {
+    background-color: var(--primary-color); color: var(--white);
+    padding: 50px; border-radius: 24px;
+}
+.contact-info h3 { color: var(--white); }
+.info-block { margin-bottom: 25px; }
+.info-label {
+    text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1.5px;
+    color: var(--accent-color); display: block; margin-bottom: 5px; font-weight: 700;
+}
+.info-value a { color: #fff; transition: var(--transition); }
+.info-value a:hover { color: var(--accent-color); }
+
+/* Chat buttons */
+.chat-buttons { display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
+.chat-btn {
+    display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px;
+    border-radius: 8px; font-size: 0.85rem; font-weight: 600; text-decoration: none;
+    transition: var(--transition); color: white; border: 1px solid rgba(255,255,255,0.2);
+}
+.chat-btn.whatsapp { background-color: rgba(37, 211, 102, 0.2); }
+.chat-btn.whatsapp:hover { background-color: #25D366; border-color: #25D366; transform: translateY(-2px); }
+.chat-btn.signal { background-color: rgba(58, 118, 240, 0.2); }
+.chat-btn.signal:hover { background-color: #3A76F0; border-color: #3A76F0; transform: translateY(-2px); }
+
+/* Social Links */
+.social-links { display: flex; gap: 15px; }
+.social-links a {
+    width: 40px; height: 40px; background: rgba(255,255,255,0.1);
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%; color: white; transition: var(--transition);
+}
+.social-links a:hover { background: var(--accent-color); transform: scale(1.1); }
+
+/* --- FORMULÁŘ --- */
+.contact-form {
+    background: #fff; padding: 40px; border-radius: 24px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.04); border: 1px solid #f1f5f9;
+}
+
+/* Rychlý kontakt (Nahoře ve formuláři) */
+.quick-contact-top { text-align: center; margin-bottom: 10px; }
+.quick-contact-top p { color: #64748b; font-size: 0.95rem; margin-bottom: 15px; line-height: 1.4; }
+
+/* Oddělovač */
+.form-divider { position: relative; text-align: center; margin: 30px 0; }
+.form-divider::before {
+    content: ''; position: absolute; top: 50%; left: 0; right: 0;
+    height: 1px; background: #e2e8f0; z-index: 1;
+}
+.form-divider span {
+    background: #fff; padding: 0 15px; color: #94a3b8;
+    font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;
+    font-weight: 600; position: relative; z-index: 2;
+}
+
+/* Animace zvýraznění formuláře */
+@keyframes pulse-border {
+    0% { box-shadow: 0 10px 40px rgba(0,0,0,0.04); border-color: #f1f5f9; }
+    50% { box-shadow: 0 0 25px rgba(249, 115, 22, 0.4); border-color: var(--accent-color); }
+    100% { box-shadow: 0 10px 40px rgba(0,0,0,0.04); border-color: #f1f5f9; }
+}
+.highlight-form { animation: pulse-border 1.5s ease-in-out; }
+
+/* Form Inputs */
+.contact-form input[type="text"], 
+.contact-form input[type="email"], 
+.contact-form input[type="tel"],
+.contact-form textarea {
+    width: 100%; padding: 14px; border: 2px solid #e2e8f0;
+    background: #f8fafc; border-radius: 10px; font-family: inherit;
+    margin-bottom: 15px; outline: none; transition: var(--transition);
+}
+.contact-form input:focus, .contact-form textarea:focus {
+    border-color: var(--accent-color); background: #fff;
+}
+
+.success-msg {
+    background-color: #dcfce7; color: #166534; padding: 15px;
+    border-radius: 8px; margin-bottom: 20px;
+}
+
+/* --- FORM TAGS (Multiselect) --- */
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.tag-group { margin-bottom: 20px; }
+.tag-label {
+    display: block; font-size: 0.85rem; font-weight: 600; color: #64748b;
+    margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;
+}
+.tags-wrapper { display: flex; flex-wrap: wrap; gap: 10px; }
+
+/* Skrytý checkbox */
+.tag-checkbox input { display: none; }
+
+/* Styl štítku */
+.tag-checkbox span {
+    display: inline-block; padding: 8px 16px;
+    background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 50px;
+    color: var(--primary-color); font-size: 0.9rem; font-weight: 500;
+    cursor: pointer; transition: var(--transition); user-select: none;
+}
+.tag-checkbox span:hover { background: #e2e8f0; }
+
+/* Aktivní stav štítku */
+.tag-checkbox input:checked + span {
+    background: var(--accent-color); color: white;
+    border-color: var(--accent-color);
+    box-shadow: 0 4px 10px rgba(249, 115, 22, 0.3);
+}
+
+
+/* --- 11. PATIČKA (Zarovnaná, bez podtržení) --- */
+footer {
+    background: var(--primary-color);
+    color: #94a3b8;
+    padding: 80px 0 30px;
+    font-size: 0.95rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.footer-col h4 {
+    color: var(--white);
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    font-weight: 700;
+    /* Bez podtržení, čistý text */
+}
+
+.footer-col p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+    max-width: 300px;
+}
+
+/* OPRAVA ZAROVNÁNÍ: Vynulování odsazení seznamů */
+.footer-links, 
+.footer-contact {
+    padding: 0;      /* Zruší odsazení zleva */
+    margin: 0;
+    list-style: none;
+}
+
+/* Odkazy v patičce */
+.footer-links li { margin-bottom: 12px; }
+.footer-links a {
+    color: #94a3b8;
+    transition: var(--transition);
+    display: inline-block;
+}
+.footer-links a:hover {
+    color: var(--accent-color);
+    transform: translateX(5px);
+}
+
+/* Kontakt v patičce */
+.footer-contact li {
+    display: flex; align-items: flex-start; gap: 10px;
+    margin-bottom: 15px; color: #cbd5e1;
+}
+.footer-contact i {
+    color: var(--accent-color);
+    margin-top: 5px;
+    width: 20px; /* Fixní šířka pro ikony, aby texty lícovaly pod sebou */
+}
+.footer-contact a:hover { color: var(--white); }
+
+/* Sociální sítě */
+.footer-socials { display: flex; gap: 15px; margin-top: 20px; }
+.footer-socials a {
+    width: 36px; height: 36px;
+    background: rgba(255,255,255,0.1);
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%; color: white; transition: var(--transition);
+}
+.footer-socials a:hover { background: var(--accent-color); transform: translateY(-3px); }
+
+/* Legal links (GDPR) */
+.legal-links a {
+    font-size: 0.85rem; color: #64748b; text-decoration: underline;
+}
+.legal-links a:hover { color: var(--white); }
+
+/* Spodní copyright */
+.copyright {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 30px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+/* --- RESPONSIVE PATIČKA --- */
+@media (max-width: 992px) {
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .footer-col p { margin: 0 auto 20px; }
+    .footer-socials { justify-content: center; }
+    .footer-contact li { justify-content: center; }
+    
+    /* Na mobilu chceme odkazy stále hezky pod sebou, i když centrované */
+    .footer-links, .footer-contact { padding: 0; }
+}
+
+/* --- 12. STICKY MOBILE BAR --- */
+.mobile-sticky-bar {
+    display: none; /* Na PC skryto */
+    position: fixed; bottom: 20px; left: 20px; right: 20px;
+    background: #fff; padding: 8px; border-radius: 50px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    z-index: 9999; justify-content: space-between; gap: 10px;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.sticky-btn {
+    flex: 1; display: flex; align-items: center; justify-content: center;
+    padding: 12px; border-radius: 40px; font-weight: 700; font-size: 1rem;
+    text-decoration: none; transition: var(--transition);
+}
+.sticky-btn i { margin-right: 8px; }
+.sticky-btn.call { background: var(--accent-gradient); color: #fff; box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3); }
+.sticky-btn.email { background: #f1f5f9; color: var(--primary-color); }
+
+
+/* --- 13. MEDIA QUERIES (Responsivita) --- */
+@media (max-width: 992px) {
+    /* Hero */
+    .hero { padding: 180px 0 100px; }
+    .hero h1 { font-size: 2.8rem; }
+    .trust-badges { flex-wrap: wrap; }
+
+    /* Layout */
+    .contact-wrapper { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .header-btn { margin-left: auto; }
+    
+    /* CTA Banner Mobil */
+    .cta-content { flex-direction: column; text-align: center; gap: 30px; }
+    .cta-text h2 { font-size: 1.8rem; }
+    .cta-action { flex-direction: column; width: 100%; }
+    .btn-outline-light, .btn-light { width: 100%; text-align: center; }
+
+    /* Formular */
+    .form-row { grid-template-columns: 1fr; gap: 0; }
+    
+    /* Služby */
+    .service-row { grid-template-columns: 1fr; gap: 40px; margin-bottom: 80px; }
+    .service-row.reverse .service-text { order: initial; }
+    .service-row.reverse .service-img-wrapper { order: initial; }
+    .service-img-wrapper { order: 2; }
+    .service-text { order: 1; }
+
+    /* --- CAROUSEL FIX MOBIL (Oprava šipek a ořezu) --- */
+    
+    /* 1. Reset wrapperu - MUSÍ být visible, aby byly vidět šipky dole */
+    .testimonials-wrapper { 
+        padding: 0; 
+        max-width: 100%;
+        overflow: visible; /* ZMĚNA: Tady nesmí být hidden */
+        position: relative;
+    }
+    
+    /* 2. Reset viewportu - ten naopak MUSÍ být hidden, aby schoval pás karet */
+    .testimonials-viewport { 
+        margin-bottom: 80px; /* Zvětšeno místo pro šipky */
+        width: 100%;
+        padding-left: 0; 
+        padding-right: 0;
+        overflow: hidden; /* Důležité */
+    }
+
+    /* 3. Karta */
+    .testimonial-card { 
+        flex: 0 0 100%;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 25px;
+        box-sizing: border-box;
+    }
+    
+    /* 4. Šipky - posunuté pod kartu */
+    .nav-btn { 
+        top: auto; 
+        bottom: 0; /* Umístíme je na dno wrapperu */
+        transform: none;
+        width: 50px; height: 50px;
+        background-color: var(--white);
+        z-index: 20; 
+    }
+    .prev-btn { left: calc(50% - 60px); }
+    .next-btn { right: calc(50% - 60px); }
+}
+
+@media (max-width: 768px) {
+    /* Logo carousel mobil */
+    .slide img { max-height: 35px; }
+    .slide-track { width: calc(150px * 12); }
+    .slide { width: 150px; padding: 0 15px; }
+    @keyframes scroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(calc(-150px * 6)); }
+    }
+
+    /* Sticky Bar aktivace */
+    .mobile-sticky-bar { display: flex; }
+    footer { padding-bottom: 100px; }
+}
+
+/* --- STYLY PRO TEXTOVÉ STRÁNKY (GDPR) --- */
+.text-page {
+    max-width: 800px; /* Užší sloupec pro lepší čtení */
+    margin: 0 auto;
+}
+
+.text-page h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: var(--primary-color);
+}
+
+.text-page h2 {
+    font-size: 1.5rem;
+    margin-top: 40px;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 10px;
+}
+
+.text-page p {
+    margin-bottom: 15px;
+    color: #475569;
+    line-height: 1.8;
+}
+
+.text-page .lead {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--accent-color);
+}

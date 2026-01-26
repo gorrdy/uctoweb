@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Cesta k mapě stránek (DŮLEŽITÉ)
+Sitemap: https://ucto.gorrdy.cz/static/sitemap.xml
