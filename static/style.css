@@ -94,22 +94,25 @@ ul { list-style: none; }
     box-shadow: 0 8px 25px rgba(249, 115, 22, 0.4);
 }
 
-/* Outline tlačítko (průhledné s rámečkem) */
+/* Outline tlačítko (průhledné s rámečkem - v CTA banneru) */
 .btn-outline-light {
-    display: inline-flex;       /* Změna na flex */
-    align-items: center;        /* Centr */
-    justify-content: center;    /* Centr */
-    gap: 8px;                   /* Mezera */
+    display: inline-flex;       
+    align-items: center;        
+    justify-content: center;    
+    gap: 8px;                   
     
     background: transparent;
-    color: var(--primary-color); /* Zde pozor, v CSS máte var(--white), ale na bílém pozadí (thank-you page) to musí být tmavé, to už asi máte vyřešené inline stylem v HTML, nechte jak je */
+    /* OPRAVA BARVY: Musí být bílá, protože je na tmavém pozadí CTA banneru */
+    color: var(--white); 
     padding: 14px 26px;
     border-radius: 50px;
     font-weight: 600;
     text-decoration: none;
-    border: 2px solid rgba(26, 54, 66, 0.2); /* Jemná úprava pro viditelnost na bílé */
+    /* OPRAVA RÁMEČKU: Světlý poloprůhledný */
+    border: 2px solid rgba(255, 255, 255, 0.4); 
     transition: var(--transition);
 }
+
 .btn-outline-light:hover {
     background: var(--white);
     color: var(--primary-color);
