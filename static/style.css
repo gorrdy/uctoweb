@@ -855,3 +855,88 @@ footer {
     width: 100%;
     transition: width 1s linear; /* Plynulý úbytek po vteřinách */
 }
+
+/* --- BLOG & NOVINKY --- */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.blog-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    transition: var(--transition);
+    border: 1px solid #f1f5f9;
+    display: flex; flex-direction: column;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-color: var(--accent-color);
+}
+
+.blog-img-wrapper {
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+}
+
+.blog-img-wrapper img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.blog-card:hover .blog-img-wrapper img {
+    transform: scale(1.05);
+}
+
+.blog-content-preview {
+    padding: 25px;
+    display: flex; flex-direction: column; flex-grow: 1;
+}
+
+.blog-date {
+    font-size: 0.85rem; color: #94a3b8; margin-bottom: 10px;
+    display: flex; align-items: center; gap: 6px;
+}
+
+.blog-content-preview h3 {
+    font-size: 1.3rem; margin-bottom: 15px; line-height: 1.4;
+}
+.blog-content-preview h3 a { color: var(--primary-color); }
+.blog-content-preview h3 a:hover { color: var(--accent-color); }
+
+.blog-content-preview p {
+    color: #64748b; font-size: 0.95rem; line-height: 1.6;
+    margin-bottom: 20px; flex-grow: 1;
+}
+
+.read-more {
+    font-weight: 600; color: var(--accent-color); font-size: 0.9rem;
+    display: inline-flex; align-items: center; gap: 5px;
+}
+.read-more:hover { gap: 10px; }
+
+/* --- DETAIL ČLÁNKU --- */
+.article-header { padding: 40px 0 20px; }
+.article-main-image {
+    width: 100%; max-height: 400px; object-fit: cover;
+    border-radius: 20px; margin-bottom: 40px;
+}
+
+/* Typografie uvnitř článku */
+.article-body h2 { margin-top: 40px; font-size: 1.8rem; }
+.article-body h3 { margin-top: 30px; font-size: 1.4rem; }
+.article-body ul, .article-body ol { margin-bottom: 20px; padding-left: 20px; color: #475569; }
+.article-body li { margin-bottom: 10px; }
+.article-body blockquote {
+    border-left: 4px solid var(--accent-color);
+    background: #fff7ed; padding: 20px; margin: 30px 0;
+    font-style: italic; color: var(--primary-color); border-radius: 0 10px 10px 0;
+}
+.article-body a { color: var(--accent-color); text-decoration: underline; }

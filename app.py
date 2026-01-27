@@ -1,4 +1,5 @@
 import os
+import markdown
 from flask import Flask, render_template, request, send_from_directory, redirect, url_for
 from flask_mail import Mail, Message
 from dotenv import load_dotenv
@@ -19,6 +20,66 @@ app.config['MAIL_PASSWORD'] = os.getenv('MAIL_PASSWORD')
 
 # Nastavení výchozího odesílatele
 app.config['MAIL_DEFAULT_SENDER'] = os.getenv('MAIL_DEFAULT_SENDER', os.getenv('MAIL_USERNAME'))
+
+# --- FUNKCE PRO BLOG ---
+def get_posts():
+    posts = []
+    posts_dir = os.path.join(app.root_path, 'posts')
+    
+    # Pokud složka neexistuje, vrátíme prázdný seznam
+    if not os.path.exists(posts_dir):
+        return []
+
+    for filename in os.listdir(posts_dir):
+        print(f"Načítám soubor: {filename}")
+        if filename.endswith('.md'):
+            filepath = os.path.join(posts_dir, filename)
+            with open(filepath, 'r', encoding='utf-8') as f:
+                content = f.read()
+                
+                # Vytvoříme Markdown objekt s podporou metadat
+                md = markdown.Markdown(extensions=['meta'])
+                md.convert(content)
+                
+                # Získáme metadata (titulek, datum...)
+                if hasattr(md, 'Meta'):
+                    meta = md.Meta
+                    # Slug (URL adresa) bude název souboru bez .md
+                    meta['slug'] = [filename[:-3]]
+                    # Metadata jsou v listech, vezmeme první položku
+                    post = {
+                        'title': meta.get('title', ['Bez názvu'])[0],
+                        'date': meta.get('date', [''])[0],
+                        'description': meta.get('description', [''])[0],
+                        'image': meta.get('image', [''])[0],
+                        'slug': filename[:-3]
+                    }
+                    posts.append(post)
+    
+    # Seřadíme podle data (nejnovější nahoře)
+    posts.sort(key=lambda x: x['date'], reverse=True)
+    return posts
+
+def get_single_post(slug):
+    posts_dir = os.path.join(app.root_path, 'posts')
+    filepath = os.path.join(posts_dir, f"{slug}.md")
+    
+    if not os.path.exists(filepath):
+        return None
+        
+    with open(filepath, 'r', encoding='utf-8') as f:
+        content = f.read()
+        md = markdown.Markdown(extensions=['meta'])
+        html_content = md.convert(content)
+        meta = md.Meta
+        
+        post = {
+            'title': meta.get('title', ['Bez názvu'])[0],
+            'date': meta.get('date', [''])[0],
+            'image': meta.get('image', [''])[0],
+            'content': html_content
+        }
+        return post
 
 # Inicializace Mail rozšíření
 mail = Mail(app)
@@ -48,6 +109,10 @@ page_meta = {
     'thank_you': {
         'title': 'Děkujeme za poptávku | ÚčtoVšem',
         'description': 'Vaše poptávka byla úspěšně odeslána.'
+    },
+    'blog': {
+        'title': 'Blog a Novinky | ÚčtoVšem',
+        'description': 'Aktuální informace ze světa účetnictví, daní a mezd. Rady a tipy pro podnikatele.'
     }
 }
 
@@ -117,6 +182,25 @@ def payroll_page():
 @app.route('/zasady-ochrany-osobnich-udaju')
 def privacy():
     return render_template('privacy.html', meta=page_meta['privacy'])
+
+# --- NOVÉ ROUTY PRO BLOG ---
+@app.route('/blog')
+def blog_list():
+    posts = get_posts()
+    return render_template('blog.html', posts=posts, meta=page_meta['blog'])
+
+@app.route('/blog/<slug>')
+def blog_detail(slug):
+    post = get_single_post(slug)
+    if post is None:
+        return render_template('404.html'), 404
+        
+    # Dynamická metadata pro konkrétní článek
+    meta = {
+        'title': f"{post['title']} | Blog ÚčtoVšem",
+        'description': post['title'] # Nebo description z MD, pokud bychom ho načítali i v detailu
+    }
+    return render_template('post.html', post=post, meta=meta)
 
 # --- TECHNICKÉ SEO SOUBORY ---
 @app.route('/sitemap.xml')
