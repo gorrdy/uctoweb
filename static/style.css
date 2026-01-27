@@ -471,6 +471,17 @@ nav {
 .contact-form input:focus, .contact-form textarea:focus {
     border-color: var(--accent-color); background: #fff;
 }
+/* --- NOVÉ: Styl pro Placeholdery (napovědné texty) --- */
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    font-size: 1.1rem; /* Stejná velikost jako psaný text */
+    color: #94a3b8;    /* Šedá barva, ale dostatečně kontrastní */
+    opacity: 1;        /* Fix pro Firefox, který defaultně snižuje průhlednost */
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    border-color: var(--accent-color); background: #fff;
+}
 
 .success-msg {
     background-color: #dcfce7; color: #166534; padding: 15px;
