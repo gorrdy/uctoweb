@@ -13,20 +13,30 @@
 </head>
 <body>
 
-    <header style="position: relative; background: white; border-bottom: 1px solid #f1f5f9;">
-        <nav class="container">
-            <a href="{{ url_for('home') }}" class="logo-link">
-                <img src="{{ url_for('static', filename='logo.png') }}" alt="ÚčtoVšem Logo" class="logo-img">
-            </a>
-            <div style="display: flex; gap: 15px; align-items: center;">
-                 <a href="{{ url_for('home') }}" class="btn btn-outline-light" style="border-color: var(--primary-color); color: var(--primary-color);">
-                    Zpět
+    <header style="position: fixed; width: 100%; top: 0; z-index: 1000; background: white; border-bottom: 1px solid #f1f5f9;">
+        <div class="container">
+            <nav>
+                <a href="{{ url_for('home') }}" class="logo-link">
+                    <img src="{{ url_for('static', filename='logo.png') }}" alt="ÚčtoVšem Logo" class="logo-img">
                 </a>
-            </div>
-        </nav>
+                
+                <ul class="nav-links">
+                    <li><a href="{{ url_for('home') }}#about">O nás</a></li>
+                    <li><a href="{{ url_for('home') }}#accounting">Účetnictví</a></li>
+                    <li><a href="{{ url_for('home') }}#taxes">Daně</a></li>
+                    <li><a href="{{ url_for('home') }}#payroll">Mzdy</a></li>
+                    <li><a href="{{ url_for('home') }}#contact">Kontakt</a></li>
+                    <li><a href="{{ url_for('blog_list') }}" style="color: var(--accent-color);">Blog</a></li> 
+                </ul>
+
+                <a href="tel:+420777942666" class="header-btn">
+                    <i class="fa-solid fa-phone"></i> Zavolat nám
+                </a>
+            </nav>
+        </div>
     </header>
 
-    <section class="page-content section-padding" style="background: #f8fafc;">
+    <section class="page-content section-padding" style="background: #f8fafc; padding-top: 140px;">
         <div class="container">
             <div class="section-header">
                 <h1>Blog a Novinky</h1>
@@ -38,7 +48,9 @@
                 {% for post in posts %}
                 <article class="blog-card">
                     <div class="blog-img-wrapper">
-                        <img src="{{ post.image if post.image else 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070' }}" alt="{{ post.title }}" loading="lazy">
+                        <a href="{{ url_for('blog_detail', slug=post.slug) }}" class="blog-img-link" aria-label="Přečíst článek: {{ post.title }}">
+                            <img src="{{ post.image if post.image else 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070' }}" alt="{{ post.title }}" loading="lazy">
+                        </a>
                     </div>
                     <div class="blog-content-preview">
                         <div class="blog-date"><i class="fa-regular fa-calendar"></i> {{ post.date }}</div>
@@ -62,6 +74,9 @@
             © 2026 ÚčtoVšem s.r.o.
         </div>
     </footer>
+    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 
 </body>
 </html>
