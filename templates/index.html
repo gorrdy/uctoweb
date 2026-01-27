@@ -418,12 +418,6 @@
                         <span>nebo vyplňte formulář</span>
                     </div>
 
-                    {% if success %}
-                    <div class="success-msg">
-                        <strong>Odesláno!</strong> Děkujeme za vaši zprávu, brzy se ozveme.
-                    </div>
-                    {% endif %}
-
                     <form action="/" method="POST" id="mainForm">
                         <div class="form-row">
                             <input type="text" name="jmeno" placeholder="Jméno a Příjmení *" required>
@@ -586,5 +580,15 @@
     ]
     }
     </script>
+    <div id="submissionPopup" class="popup-overlay">
+        <div class="popup-content">
+            <div class="popup-spinner-container">
+                <div class="spinner"></div>
+                <div class="checkmark-draw"></div>
+            </div>
+            <h3 id="popupText">Odesílám poptávku...</h3>
+            <p id="popupSubtext">Prosím čekejte, zpracováváme formulář.</p>
+        </div>
+    </div>
 </body>
 </html>

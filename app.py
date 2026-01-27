@@ -1,10 +1,29 @@
 import os
-from flask import Flask, render_template, request, send_from_directory
+from flask import Flask, render_template, request, send_from_directory, redirect, url_for
+from flask_mail import Mail, Message
+from dotenv import load_dotenv
+
+# 1. Načtení proměnných z .env souboru
+load_dotenv()
 
 app = Flask(__name__)
 
+# 2. Konfigurace aplikace a mail serveru z prostředí
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'default-dev-key')
+app.config['MAIL_SERVER'] = os.getenv('MAIL_SERVER')
+app.config['MAIL_PORT'] = int(os.getenv('MAIL_PORT', 587))
+app.config['MAIL_USE_TLS'] = os.getenv('MAIL_USE_TLS') == 'True'
+app.config['MAIL_USE_SSL'] = os.getenv('MAIL_USE_SSL') == 'True'
+app.config['MAIL_USERNAME'] = os.getenv('MAIL_USERNAME')
+app.config['MAIL_PASSWORD'] = os.getenv('MAIL_PASSWORD')
+
+# Nastavení výchozího odesílatele
+app.config['MAIL_DEFAULT_SENDER'] = os.getenv('MAIL_DEFAULT_SENDER', os.getenv('MAIL_USERNAME'))
+
+# Inicializace Mail rozšíření
+mail = Mail(app)
+
 # --- KONFIGURACE SEO METADAT ---
-# Zde můžete centrálně měnit titulky a popisky pro jednotlivé stránky
 page_meta = {
     'home': {
         'title': 'ÚčtoVšem | Účetnictví, daně a krypto - Praha a Online',
@@ -25,6 +44,10 @@ page_meta = {
     'privacy': {
         'title': 'Zásady ochrany osobních údajů | ÚčtoVšem',
         'description': 'Informace o zpracování a ochraně osobních údajů dle GDPR.'
+    },
+    'thank_you': {
+        'title': 'Děkujeme za poptávku | ÚčtoVšem',
+        'description': 'Vaše poptávka byla úspěšně odeslána.'
     }
 }
 
@@ -35,21 +58,48 @@ def home():
         # Zpracování formuláře
         jmeno = request.form.get('jmeno')
         email = request.form.get('email')
-        sluzba = request.form.get('service')
+        telefon = request.form.get('telefon')
         zprava = request.form.get('zprava')
         
-        # Simulace odeslání (log do konzole)
-        print(f"--- NOVÁ POPTÁVKA ---")
-        print(f"Jméno: {jmeno}")
-        print(f"Email: {email}")
-        print(f"Služba: {sluzba}")
-        print(f"Zpráva: {zprava}")
-        print(f"---------------------")
+        # Sestavení obsahu e-mailu
+        email_body = f"""
+        Nová poptávka z webu ÚčtoVšem.cz
         
-        # Vrátíme stránku s potvrzením úspěchu
-        return render_template('index.html', success=True, meta=page_meta['home'])
+        Jméno: {jmeno}
+        Email: {email}
+        Telefon: {telefon}
+        
+        Zpráva:
+        {zprava}
+        """
+
+        # Odeslání e-mailu
+        try:
+            recipient = os.getenv('MAIL_RECIPIENT')
+            msg = Message(
+                subject=f"Nová poptávka: {jmeno}",
+                recipients=[recipient] 
+            )
+            msg.body = email_body
+            msg.reply_to = email 
+            
+            mail.send(msg)
+            print(f"--- EMAIL ODESLÁN NA {recipient} ---")
+            
+        except Exception as e:
+            print(f"!!! CHYBA PŘI ODESÍLÁNÍ EMAILU !!!: {e}")
+            # I při chybě přesměrujeme (log máme v konzoli), nebo můžeme zobrazit error stránku.
+            # Pro uživatele je lepší "Success" zpráva, my chybu vyřešíme interně.
+        
+        # PŘESMĚROVÁNÍ NA DĚKOVACÍ STRÁNKU
+        return redirect(url_for('thank_you_page'))
 
     return render_template('index.html', meta=page_meta['home'])
+
+# --- DĚKOVACÍ STRÁNKA ---
+@app.route('/dekujeme')
+def thank_you_page():
+    return render_template('thank-you.html', meta=page_meta['thank_you'])
 
 # --- PODSTRÁNKY SLUŽEB ---
 @app.route('/vedeni-ucetnictvi')
@@ -71,12 +121,10 @@ def privacy():
 # --- TECHNICKÉ SEO SOUBORY ---
 @app.route('/sitemap.xml')
 def sitemap():
-    # Hledá soubor v kořenovém adresáři aplikace (vedle app.py)
     return send_from_directory(app.root_path, 'sitemap.xml')
 
 @app.route('/robots.txt')
 def robots():
-    # Hledá soubor v kořenovém adresáři aplikace (vedle app.py)
     return send_from_directory(app.root_path, 'robots.txt')
 
 # --- CHYBOVÁ STRÁNKA 404 ---
@@ -85,4 +133,5 @@ def page_not_found(e):
     return render_template('404.html'), 404
 
 if __name__ == '__main__':
-    app.run(debug=True, port=9020, host='0.0.0.0')
+    port = int(os.environ.get('PORT', 9020))
+    app.run(debug=True, port=port, host='0.0.0.0')

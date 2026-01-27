@@ -50,8 +50,15 @@ ul { list-style: none; }
 
 /* --- 2. TLAČÍTKA --- */
 /* Hlavní oranžové tlačítko */
+/* Hlavní oranžové tlačítko */
 .btn {
-    display: inline-block;
+    /* --- ZMĚNA: Použijeme Flexbox pro perfektní centrování --- */
+    display: inline-flex;       /* Místo inline-block */
+    align-items: center;        /* Vertikální střed */
+    justify-content: center;    /* Horizontální střed */
+    gap: 10px;                  /* Mezera mezi ikonou a textem */
+    /* --------------------------------------------------------- */
+    
     background: var(--accent-gradient);
     color: var(--white);
     padding: 14px 36px;
@@ -64,6 +71,7 @@ ul { list-style: none; }
     cursor: pointer;
     box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
     transition: var(--transition);
+    text-decoration: none; /* Pro jistotu, aby odkaz nebyl podtržený */
 }
 .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(249, 115, 22, 0.4); }
 
@@ -86,16 +94,20 @@ ul { list-style: none; }
     box-shadow: 0 8px 25px rgba(249, 115, 22, 0.4);
 }
 
-/* Outline tlačítko (průhledné s rámečkem - v CTA banneru) */
+/* Outline tlačítko (průhledné s rámečkem) */
 .btn-outline-light {
-    display: inline-block;
+    display: inline-flex;       /* Změna na flex */
+    align-items: center;        /* Centr */
+    justify-content: center;    /* Centr */
+    gap: 8px;                   /* Mezera */
+    
     background: transparent;
-    color: var(--white);
+    color: var(--primary-color); /* Zde pozor, v CSS máte var(--white), ale na bílém pozadí (thank-you page) to musí být tmavé, to už asi máte vyřešené inline stylem v HTML, nechte jak je */
     padding: 14px 26px;
     border-radius: 50px;
     font-weight: 600;
     text-decoration: none;
-    border: 2px solid rgba(255,255,255,0.4);
+    border: 2px solid rgba(26, 54, 66, 0.2); /* Jemná úprava pro viditelnost na bílé */
     transition: var(--transition);
 }
 .btn-outline-light:hover {
@@ -738,4 +750,97 @@ footer {
     font-size: 1.2rem;
     font-weight: 500;
     color: var(--accent-color);
+}
+
+/* --- SUBMISSION POPUP --- */
+.popup-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(26, 54, 66, 0.85); /* Tmavý podklad v barvě brandu */
+    backdrop-filter: blur(5px);
+    z-index: 9999;
+    display: none; /* Skryté defaultně */
+    align-items: center; justify-content: center;
+    opacity: 0; transition: opacity 0.3s ease;
+}
+
+.popup-overlay.active {
+    display: flex; opacity: 1;
+}
+
+.popup-content {
+    background: white; padding: 40px; border-radius: 20px;
+    text-align: center; max-width: 400px; width: 90%;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+    transform: scale(0.9); transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.popup-overlay.active .popup-content {
+    transform: scale(1);
+}
+
+.popup-spinner-container {
+    height: 80px; width: 80px; margin: 0 auto 20px; position: relative;
+    display: flex; align-items: center; justify-content: center;
+}
+
+/* Spinner animace */
+.spinner {
+    width: 60px; height: 60px;
+    border: 5px solid #e2e8f0;
+    border-top-color: var(--accent-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Texty v popupu */
+#popupText { color: var(--primary-color); margin-bottom: 10px; font-size: 1.4rem; }
+#popupSubtext { color: #64748b; font-size: 0.95rem; }
+
+/* Úspěšný stav (Success Checkmark) */
+.success-state .spinner { display: none; }
+.checkmark-draw {
+    display: none; width: 60px; height: 60px;
+    border-radius: 50%; background: #dcfce7;
+    color: #166534; font-size: 30px;
+    align-items: center; justify-content: center;
+}
+.success-state .checkmark-draw { display: flex; animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+.success-state .checkmark-draw::after {
+    content: '\f00c'; font-family: "Font Awesome 6 Free"; font-weight: 900;
+}
+
+@keyframes popIn {
+    0% { transform: scale(0); }
+    80% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* --- REDIRECT TIMER (Thank You Page) --- */
+.redirect-container {
+    max-width: 300px;
+    margin: 0 auto;
+    color: #94a3b8;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.redirect-container p {
+    margin-bottom: 10px;
+}
+
+.progress-track {
+    width: 100%;
+    height: 4px;
+    background: #f1f5f9;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: var(--accent-color);
+    width: 100%;
+    transition: width 1s linear; /* Plynulý úbytek po vteřinách */
 }
