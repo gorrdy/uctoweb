@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stránka nenalezena (404) | ÚčtoVšem</title>
+    <meta name="robots" content="noindex, follow">
+    
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <header style="position: relative; background: white; border-bottom: 1px solid #f1f5f9;">
+        <nav class="container">
+            <a href="{{ url_for('home') }}" class="logo-link">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="ÚčtoVšem Logo" class="logo-img">
+            </a>
+            <a href="{{ url_for('home') }}" class="btn btn-outline-light" style="border-color: var(--primary-color); color: var(--primary-color);">
+                Zpět na úvod
+            </a>
+        </nav>
+    </header>
+
+    <section style="padding: 100px 0; text-align: center; min-height: 60vh; display: flex; align-items: center;">
+        <div class="container">
+            
+            <div style="font-size: 8rem; font-weight: 800; color: var(--accent-color); line-height: 1; margin-bottom: 20px;">
+                404
+            </div>
+            
+            <h1 style="font-size: 2.5rem; margin-bottom: 20px;">Stránka nenalezena</h1>
+            
+            <p style="font-size: 1.1rem; color: #64748b; max-width: 600px; margin: 0 auto 40px;">
+                Omlouváme se, ale stránka, kterou hledáte, neexistuje. Možná byla přesunuta, přejmenována nebo jste zadali špatnou adresu.
+            </p>
+
+            <a href="{{ url_for('home') }}" class="btn">
+                <i class="fa-solid fa-house"></i> Vrátit se na hlavní stranu
+            </a>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="container copyright" style="border: none;">
+            © 2026 ÚčtoVšem s.r.o.
+        </div>
+    </footer>
+
+</body>
+</html>

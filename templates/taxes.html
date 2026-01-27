@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <title>{{ meta.title }}</title>
+    <meta name="description" content="{{ meta.description }}">
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <header style="position: relative; background: white; border-bottom: 1px solid #f1f5f9;">
+        <nav class="container">
+            <a href="{{ url_for('home') }}" class="logo-link">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="ÚčtoVšem Logo" class="logo-img">
+            </a>
+            <div style="display: flex; gap: 15px; align-items: center;">
+                <a href="{{ url_for('home') }}#contact" class="btn btn-call" style="padding: 8px 20px; font-size: 0.9rem;">
+                   <i class="fa-solid fa-phone"></i> +420 777 942 666
+                </a>
+                <a href="{{ url_for('home') }}" class="btn btn-outline-light" style="border-color: var(--primary-color); color: var(--primary-color);">
+                    Zpět
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="page-content section-padding">
+        <div class="container text-page">
+            <h1>Daňové poradenství a přiznání bez stresu</h1>
+            <p class="lead">Nenechte se zaskočit finančním úřadem. Pohlídáme termíny, vyřešíme papírování a poradíme, jak legálně optimalizovat vaši daňovou povinnost.</p>
+            
+            <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 30px 0;">
+
+            <h2>Naše služby v oblasti daní</h2>
+            <p>Zajišťujeme kompletní servis pro plátce i neplátce DPH, právnické i fyzické osoby:</p>
+            <ul style="margin-bottom: 20px; line-height: 1.8;">
+                <li><strong>Daň z příjmů (DPPO a DPFO):</strong> Zpracujeme přiznání pro firmy, zaměstnance i OSVČ (včetně paušálů).</li>
+                <li><strong>DPH a Kontrolní hlášení:</strong> Zajistíme včasné podání všech povinných hlášení a souhrnů.</li>
+                <li><strong>Kryptoměny a investice:</strong> Umíme správně vypočítat zisk z prodeje kryptoměn (metody FIFO) a akcií.</li>
+                <li><strong>Silniční daň a daň z nemovitostí:</strong> Vyřešíme i méně časté daně, pokud se vás týkají.</li>
+                <li><strong>Konzultace daňového nastavení:</strong> Projdeme s vámi vaše finance a navrhneme nejvýhodnější řešení.</li>
+            </ul>
+
+            <h2>Proč řešit daně s námi?</h2>
+            <p>Legislativa se neustále mění. To, co platilo loni, už dnes nemusí být pravda. My změny sledujeme denně. Díky tomu máte jistotu, že vaše daně jsou vypočítány správně a využíváte všech dostupných slev a odpočtů. Navíc se specializujeme na moderní odvětví, jako je IT a krypto, kde běžní účetní často tápou.</p>
+            
+            <div style="background: #f8fafc; padding: 20px; border-radius: 12px; margin: 30px 0; border-left: 4px solid var(--accent-color);">
+                <h4>Užitečné odkazy</h4>
+                <p>Ověřené zdroje informací:</p>
+                <ul>
+                    <li><a href="https://adisspr.mfcr.cz/pmd/home" target="_blank" style="text-decoration: underline;">Portál MOJE daně (Daňový portál)</a></li>
+                    <li><a href="https://www.financnisprava.cz/cs/dane" target="_blank" style="text-decoration: underline;">Informace k jednotlivým daním (Finanční správa)</a></li>
+                </ul>
+            </div>
+
+            <div style="margin-top: 50px; text-align: center;">
+                <h3 style="margin-bottom: 20px;">Potřebujete pomoci s daněmi?</h3>
+                <a href="{{ url_for('home') }}#contact" class="btn">Nezávazná poptávka</a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="container copyright" style="border: none;">
+            © 2026 ÚčtoVšem s.r.o. | <a href="{{ url_for('home') }}" style="color: inherit; text-decoration: underline;">Přejít na hlavní stranu</a>
+        </div>
+    </footer>
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Daňové poradenství",
+    "provider": {
+        "@type": "AccountingService",
+        "name": "ÚčtoVšem s.r.o.",
+        "image": "https://www.uctovsem.cz/static/logo.png"
+    },
+    "areaServed": {
+        "@type": "City",
+        "name": "Praha"
+    },
+    "description": "Kompletní zpracování daňových přiznání, DPH a optimalizace daní pro firmy i OSVČ."
+    }
+    </script>
+</body>
+</html>

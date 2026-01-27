@@ -12,8 +12,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>ÚčtoVšem | Účetnictví, daně a krypto - Praha a Online</title>
-    <meta name="description" content="Profesionální vedení účetnictví, zpracování mezd a daňová přiznání. Specializujeme se na firmy, OSVČ a zdanění kryptoměn. Působíme v Praze i online.">
+    <title>{{ meta.title }}</title>
+    <meta name="description" content="{{ meta.description }}">
+    
     <meta name="keywords" content="účetnictví, daně, mzdy, kryptoměny, daňové přiznání, účetní Praha, vedení účetnictví">
     <meta name="author" content="ÚčtoVšem s.r.o.">
     <meta name="robots" content="index, follow">
@@ -146,17 +147,13 @@
                 <div class="service-text" data-aos="fade-right">
                     <div class="icon-box"><i class="fa-solid fa-calculator"></i></div>
                     <h3>Kompletní vedení účetnictví</h3>
-                    <p>Zbavte se šanonů a nepořádku. Převezmeme veškerou vaši účetní agendu. Ať už jste malý živnostník nebo rostoucí s.r.o., nastavíme procesy tak, aby byly efektivní a bezchybné.</p>
-                    <p>Zajišťujeme vedení podvojného účetnictví i daňové evidence. Vše digitálně, přehledně a v souladu s nejnovější legislativou. Vy se věnujete byznysu, my hlídáme čísla.</p>
-                    <ul class="service-list">
+                    <p>Zbavte se šanonů a nepořádku...</p> <ul class="service-list">
                         <li>Vedení účetního deníku a hlavní knihy</li>
-                        <li>Evidence pohledávek a závazků</li>
-                        <li>Zpracování bankovních výpisů</li>
-                        <li>Účetní závěrky a reporting</li>
-                    </ul>
-                </div>
-                <div class="service-img-wrapper" data-aos="fade-left">
-                    <img loading="lazy" src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=2026&auto=format&fit=crop" alt="Vedení účetnictví">
+                        </ul>
+                    
+                    <a href="{{ url_for('accounting_page') }}" style="display: inline-block; margin-top: 25px; font-weight: 600; color: var(--accent-color);">
+                        Číst více o účetnictví <i class="fa-solid fa-arrow-right" style="font-size: 0.8em; margin-left: 5px;"></i>
+                    </a>
                 </div>
             </div>
 
@@ -172,6 +169,10 @@
                         <li>Silniční daň a daň z nemovitostí</li>
                         <li>Konzultace daňového nastavení</li>
                     </ul>
+
+                    <a href="{{ url_for('taxes_page') }}" style="display: inline-block; margin-top: 25px; font-weight: 600; color: var(--accent-color);">
+                        Číst více o daních <i class="fa-solid fa-arrow-right" style="font-size: 0.8em; margin-left: 5px;"></i>
+                    </a>
                 </div>
                 <div class="service-img-wrapper" data-aos="fade-right">
                     <img loading="lazy" src="https://images.unsplash.com/photo-1586486855514-8c633cc6fd38?q=80&w=2070&auto=format&fit=crop" alt="Daňové poradenství">
@@ -190,6 +191,10 @@
                         <li>Roční zúčtování daně zaměstnanců</li>
                         <li>Mzdové listy a evidenční listy</li>
                     </ul>
+
+                    <a href="{{ url_for('payroll_page') }}" style="display: inline-block; margin-top: 25px; font-weight: 600; color: var(--accent-color);">
+                        Číst více o mzdách <i class="fa-solid fa-arrow-right" style="font-size: 0.8em; margin-left: 5px;"></i>
+                    </a>
                 </div>
                 <div class="service-img-wrapper" data-aos="fade-left">
                     <img loading="lazy" src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=2069&auto=format&fit=crop" alt="Mzdy a personalistika">

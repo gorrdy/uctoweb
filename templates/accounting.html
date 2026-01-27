@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <title>Vedení účetnictví Praha a Online | ÚčtoVšem</title>
+    <meta name="description" content="Kompletní vedení účetnictví pro firmy i OSVČ. Zpracování dokladů, DPH, kontrolní hlášení a závěrky. Online přístup a lidský servis.">
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <header style="position: relative; background: white; border-bottom: 1px solid #f1f5f9;">
+        <nav class="container">
+            <a href="{{ url_for('home') }}" class="logo-link">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="ÚčtoVšem Logo" class="logo-img">
+            </a>
+            <div style="display: flex; gap: 15px; align-items: center;">
+                <a href="{{ url_for('home') }}#contact" class="btn btn-call" style="padding: 8px 20px; font-size: 0.9rem;">
+                   <i class="fa-solid fa-phone"></i> +420 777 942 666
+                </a>
+                <a href="{{ url_for('home') }}" class="btn btn-outline-light" style="border-color: var(--primary-color); color: var(--primary-color);">
+                    Zpět
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="page-content section-padding">
+        <div class="container text-page">
+            <h1>Kompletní vedení účetnictví bez starostí</h1>
+            <p class="lead">Převezmeme vaši administrativu, abyste se mohli věnovat podnikání. Zajišťujeme účetnictví pro s.r.o. i živnostníky.</p>
+            
+            <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 30px 0;">
+
+            <h2>Co pro vás zajistíme?</h2>
+            <p>V rámci našich služeb nabízíme komplexní servis, který pokrývá všechny zákonné povinnosti:</p>
+            <ul style="margin-bottom: 20px; line-height: 1.8;">
+                <li><strong>Vedení účetního deníku a hlavní knihy:</strong> Pečlivě zaevidujeme každý doklad.</li>
+                <li><strong>Evidence DPH:</strong> Připravíme přiznání k DPH i Kontrolní hlášení.</li>
+                <li><strong>Zastupování na úřadech:</strong> Komunikujeme s finančním úřadem za vás.</li>
+                <li><strong>Reporting:</strong> Posíláme pravidelné přehledy, abyste věděli, jak si firma stojí.</li>
+            </ul>
+
+            <h2>Proč nechat účetnictví na nás?</h2>
+            <p>Moderní účetnictví není jen o přepisování čísel. Používáme moderní cloudové nástroje, díky kterým máte ke svým datům přístup 24/7. Specializujeme se i na specifické oblasti, jako je účtování kryptoměn nebo e-shopů.</p>
+            
+            <div style="background: #f8fafc; padding: 20px; border-radius: 12px; margin: 30px 0; border-left: 4px solid var(--accent-color);">
+                <h4>Užitečné informace</h4>
+                <p>Hledáte oficiální informace? Doporučujeme:</p>
+                <ul>
+                    <li><a href="https://www.zakonyprolidi.cz/cs/1991-563" target="_blank" style="text-decoration: underline;">Zákon o účetnictví (563/1991 Sb.)</a></li>
+                    <li><a href="https://www.financnisprava.cz/" target="_blank" style="text-decoration: underline;">Finanční správa ČR</a></li>
+                </ul>
+            </div>
+
+            <div style="margin-top: 50px; text-align: center;">
+                <h3 style="margin-bottom: 20px;">Máte zájem o vedení účetnictví?</h3>
+                <a href="{{ url_for('home') }}#contact" class="btn">Nezávazná poptávka</a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="container copyright" style="border: none;">
+            © 2026 ÚčtoVšem s.r.o. | <a href="{{ url_for('home') }}" style="color: inherit; text-decoration: underline;">Přejít na hlavní stranu</a>
+        </div>
+    </footer>
+
+</body>
+</html>
