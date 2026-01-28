@@ -113,7 +113,11 @@ page_meta = {
     'blog': {
         'title': 'Blog a Novinky | ÚčtoVšem',
         'description': 'Aktuální informace ze světa účetnictví, daní a mezd. Rady a tipy pro podnikatele.'
-    }
+    },
+    'emergency': {
+        'title': 'Účetní pohotovost | Okamžitý zásah při výpadku účetní | ÚčtoVšem',
+        'description': 'Zůstali jste bez účetní? Naše účetní pohotovost okamžitě přebírá agendu, hlídá termíny a zajistí kontinuitu vaší firmy. Zachráníme vaše účetnictví.'
+    },
 }
 
 # --- HLAVNÍ STRÁNKA ---
@@ -182,6 +186,10 @@ def payroll_page():
 @app.route('/zasady-ochrany-osobnich-udaju')
 def privacy():
     return render_template('privacy.html', meta=page_meta['privacy'])
+
+@app.route('/ucetni-pohotovost')
+def emergency_page():
+    return render_template('accounting-emergency.html', meta=page_meta['emergency'])
 
 # --- NOVÉ ROUTY PRO BLOG ---
 @app.route('/blog')
