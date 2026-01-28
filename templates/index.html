@@ -421,10 +421,11 @@
 
                     <form action="/" method="POST" id="mainForm">
                         <div class="form-row">
-                            <input type="text" name="jmeno" placeholder="Jméno a Příjmení *" required>
-                            <input type="email" name="email" placeholder="Váš Email *" required>
+                            <input type="text" name="jmeno" placeholder="Vaše jméno/Firma" required>
+                            <input type="email" name="email" id="emailInput" placeholder="Váš Email">
                         </div>
-                        <input type="tel" name="telefon" placeholder="Telefon (nepovinné)">
+                        <input type="tel" name="telefon" id="phoneInput" placeholder="Telefon (např. 777 666 555)">
+                        <div id="contactError" style="color: #ef4444; font-size: 0.95rem; margin-bottom: 15px; font-weight: 600; display: none; text-align: center;"></div>
 
                         <div class="tag-group">
                             <label class="tag-label">Jsem:</label>
@@ -445,7 +446,7 @@
                             </div>
                         </div>
 
-                        <textarea name="zprava" id="messageBox" rows="4" placeholder="Vaše zpráva se zde automaticky doplní..."></textarea>
+                        <textarea name="zprava" id="messageBox" rows="4" placeholder="Vaše zpráva se zde automaticky předvyplní, můžete uvést sami více informací..."></textarea>
                         
                         <button type="submit" class="btn" style="width: 100%;">Odeslat poptávku</button>
                     </form>

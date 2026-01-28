@@ -474,9 +474,16 @@ nav {
 .contact-form input[type="email"], 
 .contact-form input[type="tel"],
 .contact-form textarea {
-    width: 100%; padding: 14px; border: 2px solid #e2e8f0;
-    background: #f8fafc; border-radius: 10px; font-family: inherit;
-    margin-bottom: 15px; outline: none; transition: var(--transition);
+    width: 100%; 
+    padding: 14px; 
+    border: 2px solid #e2e8f0;
+    background: #f8fafc; 
+    border-radius: 10px; 
+    font-family: inherit;
+    font-size: 1.1rem; /* <--- PŘIDÁNO: Tato řádka zvětší psaný text */
+    margin-bottom: 15px; 
+    outline: none; 
+    transition: var(--transition);
 }
 .contact-form input:focus, .contact-form textarea:focus {
     border-color: var(--accent-color); background: #fff;

@@ -63,25 +63,95 @@ document.addEventListener('DOMContentLoaded', function() {
     const popupSubtext = document.getElementById('popupSubtext');
     const popupContent = document.querySelector('.popup-content');
 
+    /* Najděte v script.js sekci LOGIKA FORMULÁŘE a nahraďte ji tímto komplexním řešením */
+
     if (mainForm && popup) {
+        const emailField = document.getElementById('emailInput');
+        const phoneField = document.getElementById('phoneInput');
+        const errorMsg = document.getElementById('contactError');
+
+        // Funkce pro vyčištění a formátování čísla
+        function validateAndFormatPhone(value) {
+            // 1. Odstraníme vše kromě číslic a úvodního plusu
+            let cleaned = value.replace(/[^\d+]/g, '');
+            
+            // 2. Pokud začíná 00, převedeme na +
+            if (cleaned.startsWith('00')) {
+                cleaned = '+' + cleaned.substring(2);
+            }
+
+            // 3. Logika předvoleb
+            if (cleaned.length === 9 && !cleaned.startsWith('+')) {
+                // Máme 9 číslic bez předvolby -> automaticky +420
+                cleaned = '+420' + cleaned;
+            }
+
+            // 4. Základní validace délky (mezinárodní formát má obvykle 11-15 znaků vč. +)
+            if (cleaned.length < 12 || !cleaned.startsWith('+')) {
+                return { isValid: false, value: cleaned };
+            }
+
+            // 5. Formátování pro oko: +XXX YYY YYY YYY...
+            const prefix = cleaned.substring(0, 4); // +420, +421 atd.
+            const rest = cleaned.substring(4);
+            const chunks = rest.match(/.{1,3}/g); // Rozdělit po 3 číslicích
+            const formatted = prefix + ' ' + chunks.join(' ');
+
+            return { isValid: true, value: formatted };
+        }
+
+        // Volitelné: Formátování "za běhu", když uživatel opustí pole (blur)
+        phoneField.addEventListener('blur', function() {
+            if (this.value.trim() !== "") {
+                const result = validateAndFormatPhone(this.value);
+                this.value = result.value;
+            }
+        });
+
         mainForm.addEventListener('submit', function(e) {
             e.preventDefault(); 
 
-            // 1. Zobrazit Popup
+            const email = emailField.value.trim();
+            const phoneRaw = phoneField.value.trim();
+            
+            // Reset chyb
+            emailField.classList.remove('input-error');
+            phoneField.classList.remove('input-error');
+            errorMsg.style.display = 'none';
+
+            // A) Kontrola prázdnoty (musí být aspoň jeden kontakt)
+            if (!email && !phoneRaw) {
+                errorMsg.textContent = "Vyplňte prosím e-mail nebo telefon, abychom se vám mohli ozvat.";
+                errorMsg.style.display = 'block';
+                emailField.classList.add('input-error');
+                phoneField.classList.add('input-error');
+                return;
+            }
+
+            // B) Pokud je zadán telefon, zvalidujeme jeho formát
+            if (phoneRaw !== "") {
+                const phoneResult = validateAndFormatPhone(phoneRaw);
+                if (!phoneResult.isValid) {
+                    errorMsg.textContent = "Telefonní číslo nemá správný formát (chybí předvolba nebo je příliš krátké).";
+                    errorMsg.style.display = 'block';
+                    phoneField.classList.add('input-error');
+                    return;
+                }
+                // Uložíme vyčištěné a naformátované číslo zpět do pole před odesláním
+                phoneField.value = phoneResult.value;
+            }
+
+            // Pokud vše projde, spustíme animaci úspěchu
             popup.classList.add('active');
             
-            // 2. Odpočet 1 sekunda
             setTimeout(() => {
-                // 3. Změna na úspěch
                 popupContent.classList.add('success-state');
-                popupText.textContent = "Poptávka odeslána!";
-                popupSubtext.textContent = "Přesměrovávám na potvrzení...";
+                document.getElementById('popupText').textContent = "Poptávka odeslána!";
+                document.getElementById('popupSubtext').textContent = "Přesměrovávám na potvrzení...";
                 
-                // 4. Skutečné odeslání formuláře
                 setTimeout(() => {
                     mainForm.submit(); 
                 }, 800); 
-                
             }, 1000); 
         });
     }
