@@ -957,3 +957,55 @@ footer {
     font-style: italic; color: var(--primary-color); border-radius: 0 10px 10px 0;
 }
 .article-body a { color: var(--accent-color); text-decoration: underline; }
+/* Kontejner pro krizové/speciální info panely */
+.info-panel-dark {
+    background: var(--primary-color); 
+    color: var(--white); 
+    padding: 40px; 
+    border-radius: 24px; 
+    margin: 40px 0;
+}
+
+.info-panel-dark h3 { color: var(--white); margin-top: 0; }
+
+.info-panel-light {
+    background: #f8fafc; 
+    padding: 50px; 
+    border-radius: 24px; 
+    border: 1px solid #e2e8f0;
+    text-align: center;
+    margin-top: 60px;
+}
+
+/* Chybová hláška u kontaktů */
+.contact-error-msg {
+    color: #ef4444; 
+    font-size: 0.95rem; 
+    margin-bottom: 15px; 
+    font-weight: 600; 
+    display: none; 
+    text-align: center;
+}
+.text-page hr {
+    border: 0; 
+    border-top: 1px solid #e2e8f0; 
+    margin: 30px 0;
+}
+
+.text-page ul, .text-page ol {
+    margin-bottom: 20px; 
+    line-height: 1.8;
+}
+
+.badge-emergency {
+    display: inline-block; 
+    padding: 5px 15px; 
+    background: #fee2e2; 
+    color: #b91c1c; 
+    border-radius: 50px; 
+    font-weight: 700; 
+    font-size: 0.85rem; 
+    margin-bottom: 20px; 
+    text-transform: uppercase; 
+    letter-spacing: 1px;
+}

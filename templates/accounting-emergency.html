@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <title>{{ meta.title }}</title>
+    <meta name="description" content="{{ meta.description }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <header style="position: relative; background: white; border-bottom: 1px solid #f1f5f9;">
+        <nav class="container">
+            <a href="{{ url_for('home') }}" class="logo-link">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="ÚčtoVšem Logo" class="logo-img">
+            </a>
+            <div style="display: flex; gap: 15px; align-items: center;">
+                <a href="{{ url_for('home') }}" class="btn btn-outline-light" style="border-color: var(--primary-color); color: var(--primary-color);">
+                    Zpět
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="page-content section-padding" style="background: linear-gradient(135deg, #fff 0%, #fff7ed 100%);">
+        <div class="container text-page">
+            <div style="display: inline-block; padding: 5px 15px; background: #fee2e2; color: #b91c1c; border-radius: 50px; font-weight: 700; font-size: 0.85rem; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px;">
+                <i class="fa-solid fa-truck-medical"></i> Služba pro krizové situace
+            </div>
+            <h1>Účetní pohotovost: Nedovolte výpadku účetní zastavit váš byznys</h1>
+            <p class="lead">Zůstali jste ze dne na den bez účetní? Onemocněla, dala výpověď, nebo jste v účetnictví objevili kritické chyby těsně před uzávěrkou? Jsme váš bezpečný přístav.</p>
+            
+            <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 30px 0;">
+
+            <h2>Kdy volat naši pohotovost?</h2>
+            <p>Existují momenty, kdy standardní výběrové řízení na novou účetní trvá příliš dlouho. Naše pohotovost reaguje okamžitě v těchto situacích:</p>
+            <ul style="margin-bottom: 30px; line-height: 1.8;">
+                <li><strong>Náhlá absence:</strong> Dlouhodobá nemoc nebo nečekaný odchod klíčového pracovníka.</li>
+                <li><strong>Krizové termíny:</strong> Blížící se deadline DPH nebo roční závěrky, na kterou nikdo nesáhl.</li>
+                <li><strong>Ztráta důvěry:</strong> Zjistili jste v agendě chaos, který ohrožuje firmu, a potřebujete okamžitý audit a nápravu.</li>
+                <li><strong>Auditní kontrola:</strong> Ohlásil se finanční úřad a vaše dokumentace není v pořádku.</li>
+            </ul>
+
+            <div style="background: var(--primary-color); color: white; padding: 40px; border-radius: 24px; margin: 40px 0;">
+                <h3 style="color: white; margin-top: 0;">Náš "Rescue" plán pro vaši firmu</h3>
+                <ol style="margin-bottom: 0; padding-left: 20px;">
+                    <li style="margin-bottom: 15px;"><strong>Okamžitá analýza (do 24h):</strong> Identifikujeme největší rizika a hořící termíny.</li>
+                    <li style="margin-bottom: 15px;"><strong>Stabilizace agendy:</strong> Přebereme přístupy a zajistíme, aby úřady dostaly vše včas.</li>
+                    <li style="margin-bottom: 15px;"><strong>Sanace chyb:</strong> Opravíme nesrovnalosti z minulosti a nastavíme čistý stůl.</li>
+                    <li><strong>Předání nebo trvalá správa:</strong> Jakmile krize pomine, buď agendu předáme vašemu novému týmu, nebo ji dál profesionálně vedeme.</li>
+                </ol>
+            </div>
+
+            <h2>Žádné prodlevy, žádné výmluvy</h2>
+            <p>Jako majitel nebo CFO potřebujete jediné: <strong>klidné spaní a jistotu, že čísla sedí</strong>. Naše účetní pohotovost není jen o papírování, je o převzetí zodpovědnosti v momentě, kdy jiní couvají. Disponujeme týmem odborníků, kteří jsou zvyklí naskočit do rozjetého vlaku a okamžitě zorientovat v cizím systému.</p>
+
+            <div style="margin-top: 60px; text-align: center; background: #f8fafc; padding: 50px; border-radius: 24px; border: 1px solid #e2e8f0;">
+                <h3 style="margin-bottom: 15px;">Potřebujete okamžitý zásah?</h3>
+                <p style="margin-bottom: 30px;">V krizových situacích nečekejte na e-maily. Zavolejte přímo na naši pohotovostní linku a začneme situaci řešit hned.</p>
+                
+                <div style="display: flex; justify-content: center;">
+                    <a href="tel:+420777942666" class="btn" style="padding: 18px 45px; font-size: 1.1rem;">
+                        <i class="fa-solid fa-phone-volume"></i> ZAVOLAT POHOTOVOST: +420 777 942 666
+                    </a>
+                </div>
+                
+                <p style="margin-top: 20px; font-size: 0.9rem; color: #64748b;">
+                    <i class="fa-regular fa-clock"></i> Jsme připraveni naskočit do vaší agendy v řádu hodin.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="container copyright" style="border: none;">
+            © 2026 ÚčtoVšem s.r.o. | <a href="{{ url_for('home') }}" style="color: inherit; text-decoration: underline;">Přejít na hlavní stranu</a>
+        </div>
+    </footer>
+
+</body>
+</html>
