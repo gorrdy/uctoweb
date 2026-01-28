@@ -21,7 +21,7 @@ Vyplatí se u vozidel s vysokou spotřebou nebo drahým servisem. Uplatňujete 1
 ## Konec silniční daně
 Připomínáme, že pro osobní automobily (kategorie M1) byla **silniční daň zrušena**. Týká se nyní primárně nákladních vozidel a přípojných vozidel s hmotností nad 12 tun.
 
-[Napište nám](/kontakt)
+[Napište nám](/#contakt)
 
 ---
 ### Zdroje:
