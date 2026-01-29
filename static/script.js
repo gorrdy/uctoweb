@@ -215,4 +215,32 @@ document.addEventListener('DOMContentLoaded', function() {
             cb.addEventListener('change', updateMessage);
         });
     }
+    /* --- MOBILNÍ MENU LOGIKA --- */
+    const hamburger = document.querySelector('.hamburger');
+    const mobileNav = document.querySelector('.mobile-nav-overlay');
+    const mobileLinks = document.querySelectorAll('.mobile-nav-links a');
+
+    if (hamburger && mobileNav) {
+        // Toggle menu při kliknutí na hamburger
+        hamburger.addEventListener('click', function() {
+            this.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+            
+            // Zamezení scrollování pozadí
+            if (mobileNav.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Zavření menu po kliknutí na odkaz
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileNav.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+    }
 });
