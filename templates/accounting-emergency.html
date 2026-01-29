@@ -19,13 +19,23 @@
             <a href="{{ url_for('home') }}" class="logo-link">
                 <img src="{{ url_for('static', filename='logo.png') }}" alt="ÚčtoVšem Logo" class="logo-img">
             </a>
-            <div style="display: flex; gap: 15px; align-items: center;">
-                <a href="{{ url_for('home') }}" class="btn btn-outline-light" style="border-color: var(--primary-color); color: var(--primary-color);">
-                    Zpět
+             <ul class="nav-links">
+                    <li><a href="{{ url_for('home') }}#about">O nás</a></li>
+                    <li><a href="{{ url_for('home') }}#accounting">Účetnictví</a></li>
+                    <li><a href="{{ url_for('home') }}#taxes">Daně</a></li>
+                    <li><a href="{{ url_for('home') }}#payroll">Mzdy</a></li>
+                    <li><a href="{{ url_for('home') }}#contact">Kontakt</a></li>
+                    <li><a href="{{ url_for('emergency_page') }}" style="font-weight: 700; color: #b91c1c;"><i class="fa-solid fa-bolt"></i> Pohotovost</a></li>
+                    <li><a href="{{ url_for('blog_list') }}" style="color: var(--accent-color);">Blog</a></li> 
+                </ul>
+
+                <a href="tel:+420777942666" class="header-btn">
+                    <i class="fa-solid fa-phone"></i> Zavolat nám
                 </a>
-            </div>
         </nav>
     </header>
+
+    
 
     <section class="page-content section-padding" style="background: linear-gradient(135deg, #fff 0%, #fff7ed 100%);">
         <div class="container text-page">
