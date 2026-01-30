@@ -163,7 +163,11 @@ def home():
         # PŘESMĚROVÁNÍ NA DĚKOVACÍ STRÁNKU
         return redirect(url_for('thank_you_page'))
 
-    return render_template('index.html', meta=page_meta['home'])
+    # NOVÉ: Načtení proměnné z .env (vrátí True pouze pokud je text 'True')
+    show_clients = os.getenv('SHOW_CLIENTS') == 'True'
+
+    # NOVÉ: Předání proměnné show_clients do šablony
+    return render_template('index.html', meta=page_meta['home'], show_clients=show_clients)
 
 # --- DĚKOVACÍ STRÁNKA ---
 @app.route('/dekujeme')
