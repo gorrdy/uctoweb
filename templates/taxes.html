@@ -1,19 +1,6 @@
 <!DOCTYPE html>
 <html lang="cs">
-<head>
-    <title>{{ meta.title }}</title>
-    <meta name="description" content="{{ meta.description }}">
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/webp" href="{{ url_for('static', filename='favicon.webp') }}">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
+{% include 'head.html' %}
 <body>
 
     {% include 'nav.html' %}
@@ -56,23 +43,6 @@
     </section>
 
     {% include 'footer.html' %}
-    
-    <script type="application/ld+json">
-    {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "serviceType": "Daňové poradenství",
-    "provider": {
-        "@type": "AccountingService",
-        "name": "ÚčtoVšem s.r.o.",
-        "image": "https://www.uctovsem.cz/static/logo.webp"
-    },
-    "areaServed": {
-        "@type": "City",
-        "name": "Praha"
-    },
-    "description": "Kompletní zpracování daňových přiznání, DPH a optimalizace daní pro firmy i OSVČ."
-    }
-    </script>
+
 </body>
 </html>

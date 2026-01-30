@@ -1,47 +1,6 @@
 <!DOCTYPE html>
 <html lang="cs">
-<head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TQN76YWWJS"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-TQN76YWWJS');
-    </script>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>{{ meta.title }}</title>
-    <meta name="description" content="{{ meta.description }}">
-    
-    <meta name="keywords" content="účetnictví, daně, mzdy, kryptoměny, daňové přiznání, účetní Praha, vedení účetnictví">
-    <meta name="author" content="ÚčtoVšem s.r.o.">
-    <meta name="robots" content="index, follow">
-    
-    <link rel="canonical" href="https://www.uctovsem.cz/">
-
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.uctovsem.cz/">
-    <meta property="og:title" content="ÚčtoVšem | Moderní účetnictví a daně bez starostí">
-    <meta property="og:description" content="Věnujte se podnikání, papírování nechte na nás. Řešíme účetnictví, mzdy i krypto transakce.">
-    <meta property="og:image" content="{{ url_for('static', filename='logo.webp') }}">
-    <meta property="og:locale" content="cs_CZ">
-    
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="ÚčtoVšem | Účetnictví a daně">
-    <meta name="twitter:description" content="Kompletní účetní servis pro moderní firmy a krypto investory.">
-    <meta name="twitter:image" content="{{ url_for('static', filename='logo.webp') }}">
-
-    <link rel="icon" type="image/webp" href="{{ url_for('static', filename='favicon.webp') }}">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
+{% include 'head.html' %}
 <body>
 
     {% include 'nav.html' %}
@@ -448,48 +407,6 @@
         </a>
     </div>
 
-    <script type="application/ld+json">
-    {
-    "@context": "https://schema.org",
-    "@type": "AccountingService",
-    "name": "ÚčtoVšem s.r.o.",
-    "image": "{{ url_for('static', filename='logo.webp') }}",
-    "@id": "https://www.uctovsem.cz",
-    "url": "https://www.uctovsem.cz",
-    "telephone": "+420777942666",
-    "email": "info&#64;uctovsem.cz",
-    "priceRange": "$",
-    "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Kurzova 2222/16",
-        "addressLocality": "Praha 5 - Stodůlky",
-        "postalCode": "15500",
-        "addressCountry": "CZ"
-    },
-    "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 50.0385,
-        "longitude": 14.3364
-    },
-    "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday"
-        ],
-        "opens": "09:00",
-        "closes": "17:00"
-    },
-    "sameAs": [
-        "https://www.facebook.com/UctoVsem/",
-        "https://www.instagram.com/uctovsem/",
-        "https://www.linkedin.com/company/%C3%BA%C4%8Dtov%C5%A1em/"
-    ]
-    }
-    </script>
     <div id="submissionPopup" class="popup-overlay">
         <div class="popup-content">
             <div class="popup-spinner-container">
