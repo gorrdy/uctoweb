@@ -3,6 +3,8 @@ import markdown
 from flask import Flask, render_template, request, send_from_directory, redirect, url_for
 from flask_mail import Mail, Message
 from dotenv import load_dotenv
+from flask import make_response
+from datetime import datetime
 
 # 1. Načtení proměnných z .env souboru
 load_dotenv()
@@ -217,7 +219,31 @@ def blog_detail(slug):
 # --- TECHNICKÉ SEO SOUBORY ---
 @app.route('/sitemap.xml')
 def sitemap():
-    return send_from_directory(app.root_path, 'sitemap.xml')
+    # 1. Definice statických stránek
+    pages = [
+        {'endpoint': 'home', 'priority': '1.0', 'freq': 'monthly'},
+        {'endpoint': 'accounting_page', 'priority': '0.8', 'freq': 'monthly'},
+        {'endpoint': 'taxes_page', 'priority': '0.8', 'freq': 'monthly'},
+        {'endpoint': 'payroll_page', 'priority': '0.8', 'freq': 'monthly'},
+        {'endpoint': 'emergency_page', 'priority': '0.8', 'freq': 'monthly'},
+        {'endpoint': 'blog_list', 'priority': '0.8', 'freq': 'weekly'},
+        {'endpoint': 'privacy', 'priority': '0.3', 'freq': 'yearly'}
+    ]
+    
+    # 2. Načtení článků (použijeme existující funkci get_posts)
+    posts = get_posts()
+    
+    # 3. Dnešní datum pro statické stránky (nebo můžete nastavit fixní)
+    current_date = datetime.now().strftime('%Y-%m-%d')
+    
+    # 4. Renderování šablony
+    template = render_template('sitemap.html', pages=pages, posts=posts, current_date=current_date)
+    
+    # 5. Musíme nastavit správný Content-Type, aby prohlížeč věděl, že jde o XML
+    response = make_response(template)
+    response.headers['Content-Type'] = 'application/xml'
+    
+    return response
 
 @app.route('/robots.txt')
 def robots():

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    
+    {% for page in pages %}
+    <url>
+        <loc>{{ url_for(page.endpoint, _external=True) }}</loc>
+        <lastmod>{{ current_date }}</lastmod>
+        <changefreq>{{ page.freq }}</changefreq>
+        <priority>{{ page.priority }}</priority>
+    </url>
+    {% endfor %}
+
+    {% for post in posts %}
+    <url>
+        <loc>{{ url_for('blog_detail', slug=post.slug, _external=True) }}</loc>
+        <lastmod>{{ post.date }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    {% endfor %}
+
+</urlset>

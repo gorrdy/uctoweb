@@ -1,5 +1,5 @@
 User-agent: *
+Disallow: /dekujeme
 Allow: /
 
-# Správná cesta k mapě stránek na produkční doméně
 Sitemap: https://www.uctovsem.cz/sitemap.xml
