@@ -16,16 +16,7 @@
 </head>
 <body>
 
-    <header style="position: relative; background: white; border-bottom: 1px solid #f1f5f9;">
-        <nav class="container">
-            <a href="{{ url_for('home') }}" class="logo-link">
-                <img src="{{ url_for('static', filename='logo.webp') }}" alt="ÚčtoVšem Logo" class="logo-img">
-            </a>
-            <a href="{{ url_for('home') }}" class="btn btn-outline-light" style="border-color: var(--primary-color); color: var(--primary-color);">
-                Zpět na úvod
-            </a>
-        </nav>
-    </header>
+    {% include 'nav.html' %}
 
     <section style="padding: 100px 0; text-align: center; min-height: 60vh; display: flex; align-items: center;">
         <div class="container">
@@ -47,11 +38,7 @@
         </div>
     </section>
 
-    <footer>
-        <div class="container copyright" style="border: none;">
-            © 2026 ÚčtoVšem s.r.o.
-        </div>
-    </footer>
+    {% include 'footer.html' %}
 
 </body>
 </html>
