@@ -66,11 +66,8 @@
         </div>
     </section>
 
-    <footer>
-        <div class="container copyright" style="border: none;">
-            © 2026 ÚčtoVšem s.r.o. | <a href="{{ url_for('home') }}" style="color: inherit; text-decoration: underline;">Přejít na hlavní stranu</a>
-        </div>
-    </footer>
+    {% include 'footer.html' %}
+    
     <script type="application/ld+json">
     {
     "@context": "https://schema.org",

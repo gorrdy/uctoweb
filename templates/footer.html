@@ -1,0 +1,71 @@
+{% set link_prefix = "" if request.endpoint == 'home' else url_for('home') %}
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            
+            <div class="footer-col brand-col">
+                <a href="{{ url_for('home') }}" class="footer-logo">
+                    <img src="{{ url_for('static', filename='logo.webp') }}" alt="ÚčtoVšem logo" style="filter: brightness(0) invert(1); opacity: 0.9; height: 40px;">
+                </a>
+                <p>Moderní účetní firma pro malé i velké podniky. Spojujeme poctivé řemeslo s nejnovějšími technologiemi.</p>
+                <div class="footer-socials">
+                    <a href="https://www.linkedin.com/company/%C3%BA%C4%8Dtov%C5%A1em/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://www.facebook.com/UctoVsem/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/uctovsem/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Mapa webu</h4>
+                <ul class="footer-links">
+                    <li><a href="{{ link_prefix }}#about">O nás</a></li>
+                    <li><a href="{{ link_prefix }}#accounting">Vedení účetnictví</a></li>
+                    <li><a href="{{ link_prefix }}#taxes">Daňová přiznání</a></li>
+                    <li><a href="{{ link_prefix }}#payroll">Mzdy a personalistika</a></li>
+                    <li><a href="{{ link_prefix }}#contact">Kontakt</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Užitečné odkazy</h4>
+                <ul class="footer-links">
+                    <li><a href="https://adisspr.mfcr.cz/pmd/home" target="_blank">Daňový portál (MOJE daně)</a></li>
+                    <li><a href="https://or.justice.cz/ias/ui/rejstrik" target="_blank">Obchodní rejstřík</a></li>
+                    <li><a href="https://www.rzp.cz/" target="_blank">Živnostenský rejstřík</a></li>
+                    <li><a href="https://www.cnb.cz/cs/" target="_blank">ČNB - Kurzy měn</a></li>
+                    <li><a href="https://www.cssz.cz/" target="_blank">Portál ČSSZ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Kontakt</h4>
+                <ul class="footer-contact">
+                    <li>
+                        <i class="fa-solid fa-location-dot"></i> 
+                        <span>Kurzova 2222/16, Stodůlky<br>155 00 Praha 5</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-phone"></i> 
+                        <a href="tel:+420777942666">+420 777 942 666</a>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-envelope"></i> 
+                        <a href="mailto:info&#64;uctovsem.cz">info&#64;uctovsem.cz</a>
+                    </li>
+                </ul>
+                
+                <div class="legal-links" style="margin-top: 20px;">
+                    <a href="{{ url_for('privacy') }}">Zásady ochrany osobních údajů (GDPR)</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            <div class="copy-text">
+                © 2026 ÚčtoVšem s.r.o. | IČ: 251 11 761 | Spisová značka C vedená u Městského soudu v Praze
+            </div>
+        </div>
+    </div>
+</footer>
