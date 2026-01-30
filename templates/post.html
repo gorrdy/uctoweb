@@ -33,6 +33,27 @@
     </article>
 
     {% include 'footer.html' %}
-
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "{{ post.title }}",
+    "image": "{{ url_for('static', filename=post.image if post.image else 'default-blog-image.webp', _external=True) }}",
+    "datePublished": "{{ post.date }}", 
+    "author": {
+        "@type": "Organization",
+        "name": "ÚčtoVšem s.r.o."
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "ÚčtoVšem",
+        "logo": {
+        "@type": "ImageObject",
+        "url": "{{ url_for('static', filename='logo.webp', _external=True) }}"
+        }
+    },
+    "description": "{{ meta.description }}"
+    }
+    </script>
 </body>
 </html>
