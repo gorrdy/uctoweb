@@ -5,58 +5,125 @@
 
     {% include 'nav.html' %}
 
-    <section class="page-content section-padding" style="background: linear-gradient(135deg, #fff 0%, #fff7ed 100%);">
-        <div class="container text-page">
-            <h1>Účetní pohotovost</h1>
-            <h2>Nedovolte výpadku účetní zastavit váš byznys</h2>
-            <div style="display: inline-block; padding: 5px 15px; background: #fee2e2; color: #b91c1c; border-radius: 50px; font-weight: 700; font-size: 0.85rem; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px;">
-                <i class="fa-solid fa-truck-medical"></i> Služba pro krizové situace
-            </div>
-            <p class="lead">Zůstali jste ze dne na den bez účetní? Onemocněla, dala výpověď, nebo jste v účetnictví objevili kritické chyby těsně před uzávěrkou? Jsme váš bezpečný přístav.</p>
+    <section class="page-content section-padding" style="background: linear-gradient(135deg, #fff 0%, #fff7ed 100%); padding-top: 140px;">
+        <div class="container">
             
-            <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 30px 0;">
+            <div class="service-row">
+                <div class="service-text">
+                    <div style="display: inline-block; padding: 8px 16px; background: #fee2e2; color: #b91c1c; border-radius: 50px; font-weight: 700; font-size: 0.85rem; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px;">
+                        <i class="fa-solid fa-truck-medical"></i> Krizová intervence
+                    </div>
+                    
+                    <h1 style="font-size: 3rem; line-height: 1.1; margin-bottom: 20px;">Účetní pohotovost: <br>Když jde o čas</h1>
+                    <p class="lead" style="font-size: 1.2rem; color: #475569; margin-bottom: 30px;">
+                        Zůstali jste ze dne na den bez účetní? Blíží se kontrola a v dokladech je chaos? Nedovolte, aby administrativa zastavila váš byznys. <strong>Okamžitě převezmeme řízení.</strong>
+                    </p>
 
-            <h2>Kdy volat naši pohotovost?</h2>
-            <p>Existují momenty, kdy standardní výběrové řízení na novou účetní trvá příliš dlouho. Naše pohotovost reaguje okamžitě v těchto situacích:</p>
-            <ul style="margin-bottom: 30px; line-height: 1.8;">
-                <li><strong>Náhlá absence:</strong> Dlouhodobá nemoc nebo nečekaný odchod klíčového pracovníka.</li>
-                <li><strong>Krizové termíny:</strong> Blížící se deadline DPH nebo roční závěrky, na kterou nikdo nesáhl.</li>
-                <li><strong>Ztráta důvěry:</strong> Zjistili jste v agendě chaos, který ohrožuje firmu, a potřebujete okamžitý audit a nápravu.</li>
-                <li><strong>Auditní kontrola:</strong> Ohlásil se finanční úřad a vaše dokumentace není v pořádku.</li>
-            </ul>
+                    <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                        <a href="tel:+420777942666" class="btn">
+                            <i class="fa-solid fa-phone-volume"></i> Volat ihned
+                        </a>
+                    </div>
+                </div>
 
-            <div style="background: var(--primary-color); color: white; padding: 40px; border-radius: 24px; margin: 40px 0;">
-                <h3 style="color: white; margin-top: 0;">Náš "Rescue" plán pro vaši firmu</h3>
-                <ol style="margin-bottom: 0; padding-left: 20px;">
-                    <li style="margin-bottom: 15px;"><strong>Okamžitá analýza (do 24h):</strong> Identifikujeme největší rizika a hořící termíny.</li>
-                    <li style="margin-bottom: 15px;"><strong>Stabilizace agendy:</strong> Přebereme přístupy a zajistíme, aby úřady dostaly vše včas.</li>
-                    <li style="margin-bottom: 15px;"><strong>Sanace chyb:</strong> Opravíme nesrovnalosti z minulosti a nastavíme čistý stůl.</li>
-                    <li><strong>Předání nebo trvalá správa:</strong> Jakmile krize pomine, buď agendu předáme vašemu novému týmu, nebo ji dál profesionálně vedeme.</li>
-                </ol>
+                <div class="service-img-wrapper">
+                    <img src="{{ url_for('static', filename='big-ucetni-krize.webp') }}" alt="Řešení krizové situace v účetnictví" style="box-shadow: 0 20px 50px rgba(185, 28, 28, 0.15);">
+                </div>
             </div>
 
-            <h2>Žádné prodlevy, žádné výmluvy</h2>
-            <p>Jako majitel nebo CFO potřebujete jediné: <strong>klidné spaní a jistotu, že čísla sedí</strong>. Naše účetní pohotovost není jen o papírování, je o převzetí zodpovědnosti v momentě, kdy jiní couvají. Disponujeme týmem odborníků, kteří jsou zvyklí naskočit do rozjetého vlaku a okamžitě zorientovat v cizím systému.</p>
+        </div>
+    </section>
 
-            <div style="margin-top: 60px; text-align: center; background: #f8fafc; padding: 50px; border-radius: 24px; border: 1px solid #e2e8f0;">
-                <h3 style="margin-bottom: 15px;">Potřebujete okamžitý zásah?</h3>
-                <p style="margin-bottom: 30px;">V krizových situacích nečekejte na e-maily. Zavolejte přímo na naši pohotovostní linku a začneme situaci řešit hned.</p>
-                
-                <div style="display: flex; justify-content: center;">
-                    <a href="tel:+420777942666" class="btn" style="padding: 18px 45px; font-size: 1.1rem;">
-                        <i class="fa-solid fa-phone-volume"></i>Pohotovost
-                    </a>
+    <section class="section-padding">
+        <div class="container text-page">
+            <h2>Kdy aktivovat pohotovost?</h2>
+            <p style="margin-bottom: 40px;">Standardní výběrové řízení trvá týdny. My naskočíme v řádu hodin. Volejte, pokud řešíte:</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 60px;">
+                <div style="background: #fff; padding: 30px; border: 1px solid #e2e8f0; border-radius: 16px; border-left: 5px solid #ef4444;">
+                    <h3 style="margin-top: 0; font-size: 1.3rem;"><i class="fa-solid fa-user-xmark" style="color: #ef4444;"></i> Náhlý výpadek</h3>
+                    <p>Účetní dala výpověď ze dne na den, onemocněla nebo přestala komunikovat těsně před termínem DPH.</p>
                 </div>
+                <div style="background: #fff; padding: 30px; border: 1px solid #e2e8f0; border-radius: 16px; border-left: 5px solid #f97316;">
+                    <h3 style="margin-top: 0; font-size: 1.3rem;"><i class="fa-solid fa-fire" style="color: #f97316;"></i> Hořící termíny</h3>
+                    <p>Máte pár dní na podání přiznání, ale nikdo na tom nepracoval. Hrozí pokuty a penále.</p>
+                </div>
+                <div style="background: #fff; padding: 30px; border: 1px solid #e2e8f0; border-radius: 16px; border-left: 5px solid #1a3642;">
+                    <h3 style="margin-top: 0; font-size: 1.3rem;"><i class="fa-solid fa-magnifying-glass" style="color: #1a3642;"></i> Kontrola FÚ</h3>
+                    <p>Ohlásil se Finanční úřad a vy víte (nebo tušíte), že vaše dokumentace není v pořádku.</p>
+                </div>
+                <div style="background: #fff; padding: 30px; border: 1px solid #e2e8f0; border-radius: 16px; border-left: 5px solid #64748b;">
+                    <h3 style="margin-top: 0; font-size: 1.3rem;"><i class="fa-solid fa-skull-crossbones" style="color: #64748b;"></i> Totální chaos</h3>
+                    <p>Zjistili jste, že v účetnictví jsou kritické chyby, chybí doklady a hrozí doměrky daně.</p>
+                </div>
+            </div>
+
+            <div class="info-panel-dark" style="position: relative; overflow: hidden;">
+                <div style="position: relative; z-index: 2;">
+                    <h3 style="color: white; margin-top: 0; margin-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 20px;">
+                        <i class="fa-solid fa-kit-medical"></i> Náš "Rescue" plán pro vaši firmu
+                    </h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 20px; display: flex; gap: 15px;">
+                            <div style="background: var(--accent-color); width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;">1</div>
+                            <div>
+                                <strong style="display: block; font-size: 1.1rem; margin-bottom: 5px;">Okamžitá analýza (do 24h)</strong>
+                                Identifikujeme největší rizika a "hořící" termíny. Zjistíme stav databáze a přístupů.
+                            </div>
+                        </li>
+                        <li style="margin-bottom: 20px; display: flex; gap: 15px;">
+                            <div style="background: var(--accent-color); width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;">2</div>
+                            <div>
+                                <strong style="display: block; font-size: 1.1rem; margin-bottom: 5px;">Stabilizace agendy</strong>
+                                Přebereme komunikaci s úřady. Zajistíme odklady termínů tam, kde je to možné. Zamezíme dalším škodám.
+                            </div>
+                        </li>
+                        <li style="margin-bottom: 20px; display: flex; gap: 15px;">
+                            <div style="background: var(--accent-color); width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;">3</div>
+                            <div>
+                                <strong style="display: block; font-size: 1.1rem; margin-bottom: 5px;">Sanace a rekonstrukce</strong>
+                                Zpětně opravíme chyby, doúčtujeme chybějící doklady a nastavíme "čistý stůl".
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="margin-top: 60px;">
+                <h2>Časté dotazy</h2>
+                <details style="margin-bottom: 15px; background: #f8fafc; padding: 15px; border-radius: 8px; cursor: pointer;">
+                    <summary style="font-weight: 600; color: var(--primary-color);">Musím mít připravené všechny doklady hned?</summary>
+                    <p style="margin-top: 10px; margin-bottom: 0;">Ne. V první fázi potřebujeme hlavně přístupy (datová schránka, banka, účetní SW). Doklady můžeme dohledat postupně. Prioritou je zastavit sankce.</p>
+                </details>
+                <details style="margin-bottom: 15px; background: #f8fafc; padding: 15px; border-radius: 8px; cursor: pointer;">
+                    <summary style="font-weight: 600; color: var(--primary-color);">Dozví se úřady o tom, že máme problémy?</summary>
+                    <p style="margin-top: 10px; margin-bottom: 0;">Naší prioritou je diskrétnost. Vůči úřadům vystupujeme jako vaši noví zástupci. Interní stav účetnictví s nimi neřešíme, pouze dodáváme výsledky.</p>
+                </details>
+                <details style="margin-bottom: 15px; background: #f8fafc; padding: 15px; border-radius: 8px; cursor: pointer;">
+                    <summary style="font-weight: 600; color: var(--primary-color);">Jak rychle můžete začít?</summary>
+                    <p style="margin-top: 10px; margin-bottom: 0;">Okamžitě po podpisu plné moci. Jsme zvyklí naskočit do rozjetého vlaku.</p>
+                </details>
+            </div>
+
+            <div style="margin-top: 60px; text-align: center; background: #fee2e2; padding: 50px; border-radius: 24px; border: 2px solid #ef4444;">
+                <h3 style="margin-bottom: 15px; color: #b91c1c;">Nečekejte, až bude pozdě</h3>
+                <p style="margin-bottom: 30px; color: #7f1d1d;">V krizových situacích se každá hodina počítá. Zavolejte nám hned teď.</p>
                 
-                <p style="margin-top: 20px; font-size: 0.9rem; color: #64748b;">
-                    <i class="fa-regular fa-clock"></i> Jsme připraveni naskočit do vaší agendy v řádu hodin.
-                </p>
+                <div style="display: flex; justify-content: center; flex-direction: column; align-items: center; gap: 15px;">
+                    <a href="tel:+420777942666" class="btn" style="padding: 18px 45px; font-size: 1.2rem; background: #b91c1c; border: none; box-shadow: 0 4px 15px rgba(185, 28, 28, 0.3);">
+                        <i class="fa-solid fa-phone-volume"></i> +420 777 942 666
+                    </a>
+                    <span style="font-size: 0.9rem; color: #7f1d1d;">Linka dostupná pro urgentní případy</span>
+                </div>
             </div>
 
         </div>
     </section>
 
     {% include 'footer.html' %}
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 
 </body>
 </html>
