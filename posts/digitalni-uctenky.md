@@ -1,7 +1,7 @@
 title: Digitalizace účetnictví: Stačí fotka účtenky?
 date: 2026-03-01
 description: Musíte skladovat krabice s papíry? Co říká zákon o archivaci elektronických dokladů a jak správně digitalizovat.
-image: https://img.ihned.cz/attachment.php/90/74072090/bWDRmiUCMNGAvEJ3OLoK0dpw64e8qtVQ/jarvis_5d9b860b498e40c80418dda7.jpeg
+image: static/big-digi.webp
 ---
 
 # Konec krabic od bot: Co říká zákon na digitální doklady?

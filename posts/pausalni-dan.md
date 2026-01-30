@@ -1,7 +1,7 @@
 title: Paušální daň: Komu se vyplatí a jaká jsou pásma?
 date: 2026-01-15
 description: Méně papírování, ale žádné daňové slevy. Pro koho je paušální daň výhrou a kdo by měl raději zůstat u klasických výdajových paušálů?
-image: https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2070
+image: static/big-calc.webp
 ---
 
 # Paušální daň: Kdy dává smysl?

@@ -1,7 +1,7 @@
 title: DPH v kostce: Sazby a limity platné pro tento rok
 date: 2026-01-28
 description: Jaké jsou aktuální sazby DPH? Kdy se musíte stát plátcem a jak je to s limitem obratu? Přehled pro podnikatele.
-image: https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=2026
+image: static/big-calc2.webp
 ---
 
 # DPH v kostce: Co musí podnikatel vědět

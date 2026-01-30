@@ -6,7 +6,7 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.webp') }}">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,7 +19,7 @@
     <header style="position: relative; background: white; border-bottom: 1px solid #f1f5f9;">
         <nav class="container">
             <a href="{{ url_for('home') }}" class="logo-link">
-                <img src="{{ url_for('static', filename='logo.png') }}" alt="ÚčtoVšem Logo" class="logo-img">
+                <img src="{{ url_for('static', filename='logo.webp') }}" alt="ÚčtoVšem Logo" class="logo-img">
             </a>
             <div style="display: flex; gap: 15px; align-items: center;">
                 <a href="{{ url_for('home') }}" class="btn btn-outline-light" style="border-color: var(--primary-color); color: var(--primary-color);">
@@ -79,7 +79,7 @@
     "provider": {
         "@type": "AccountingService",
         "name": "ÚčtoVšem s.r.o.",
-        "image": "https://www.uctovsem.cz/static/logo.png"
+        "image": "https://www.uctovsem.cz/static/logo.webp"
     },
     "areaServed": {
         "@type": "City",

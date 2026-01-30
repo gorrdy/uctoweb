@@ -1,7 +1,7 @@
 title: Auto v podnikání: Paušál 5 000 Kč nebo kniha jízd?
 date: 2026-02-20
 description: Chcete si dát auto do nákladů? Poradíme, kdy se vyplatí vést knihu jízd a kdy je lepší využít paušální výdaj na dopravu.
-image: https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=2070
+image: static/big-auto.webp
 ---
 
 # Auto v podnikání: Jakou metodu zvolit?

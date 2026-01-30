@@ -1,7 +1,7 @@
 title: Jak zdanit kryptoměny: Průvodce pro investory
 date: 2026-02-10
 description: Bitcoin, Ethereum a daně. Musíte danit jen výběr do fiatu, nebo i směnu krypto-za-krypto? Vysvětlíme § 10 ZDP a metodu FIFO.
-image: https://images.unsplash.com/photo-1518546305927-5a555bb7020d?q=80&w=2069
+image: static/big-btc.webp
 ---
 
 # Jak správně zdanit kryptoměny (aktuální pravidla)

@@ -1,7 +1,7 @@
 title: Dohody (DPP a DPČ): Dovolená a hlášení na ČSSZ
 date: 2026-03-10
 description: Pravidla pro "dohodáře" se zpřísnila. Dovolená, povinné hlášení všech dohod a limity pro odvody. Máte vše správně nastavené?
-image: https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2032
+image: static/big-dohody.webp
 ---
 
 # Změny u dohod o provedení práce (DPP)
